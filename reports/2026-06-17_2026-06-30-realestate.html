@@ -7,209 +7,323 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
+  :root{
+    --ink:#161b22; --ink2:#2b333d; --paper:#f3efe6; --card:#fbf9f4;
+    --gold:#b0823a; --gold-soft:#cda85f; --line:#ddd6c7; --muted:#8c8473;
+  }
+  *{ -webkit-font-smoothing:antialiased; }
   body{
     font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Tahoma,Arial,Roboto,sans-serif;
-    background:#0f1115;
+    background:#0c0e12; color:var(--ink); margin:0;
   }
-  .paper{background:#f7f6f3;}
-  .header-grad{
-    background:
-      radial-gradient(120% 140% at 85% -10%, rgba(214,167,92,.18) 0%, rgba(214,167,92,0) 55%),
-      linear-gradient(135deg,#1c2530 0%,#243140 45%,#2d3b4d 100%);
-  }
-  .blueprint{
-    background-image:
-      linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
-    background-size:22px 22px;
-  }
-  .accent{color:#c8902f;}
-  .accent-bg{background:#c8902f;}
-  .rule{height:3px;background:linear-gradient(90deg,#c8902f 0%,#e0b964 45%,transparent 100%);}
-  .card{background:#fff;border:1px solid #ece8e0;box-shadow:0 1px 2px rgba(28,37,48,.04);}
-  .chip{background:#1c2530;color:#f1e9d8;}
-  .quote{border-left:4px solid #c8902f;background:#fbf7ef;}
-  .sec-ico{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;}
-  .by{color:#9a8f7c;}
-  .tagline{letter-spacing:.35em;}
+  .serif{ font-family:Georgia,"Times New Roman","Songti SC","SimSun",serif; }
+  .paper{ background:var(--paper); }
+
+  /* masthead */
+  .masthead{ background:var(--ink); color:#efe9da; position:relative; }
+  .masthead::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:4px;
+    background:linear-gradient(90deg,var(--gold) 0%,var(--gold-soft) 30%,transparent 72%); }
+  .kicker{ letter-spacing:.42em; font-size:11px; color:var(--gold-soft); }
+  .nameplate{ line-height:1.12; }
+  .hair{ border-top:1px solid rgba(255,255,255,.16); }
+  .hair-d{ border-top:1px solid var(--line); }
+  .meta-strip span{ position:relative; }
+  .meta-strip span+span::before{ content:"·"; margin:0 .6rem; color:rgba(239,233,218,.35); }
+
+  /* section header */
+  .ghost-num{ font-size:62px; line-height:.8; font-weight:800; color:transparent;
+    -webkit-text-stroke:1.4px var(--gold); opacity:.55; }
+  .sec-label{ letter-spacing:.34em; font-size:10.5px; color:var(--gold); font-weight:700; }
+  .sec-title{ font-size:21px; font-weight:800; color:var(--ink); letter-spacing:.01em; }
+
+  /* editorial list */
+  .ed-item{ border-top:1px solid var(--line); }
+  .ed-num{ font-size:13px; color:var(--gold); font-weight:800; font-variant-numeric:tabular-nums; }
+
+  /* pull quote */
+  .pull{ position:relative; }
+  .pull .mark{ position:absolute; top:-14px; left:-2px; font-size:58px; color:var(--gold);
+    opacity:.22; font-family:Georgia,serif; }
+  .by{ color:var(--muted); }
+
+  .card{ background:var(--card); border:1px solid var(--line); }
+  .tag{ background:var(--ink); color:#efe9da; font-size:11px; letter-spacing:.04em; }
+  .deck{ background:var(--ink2); color:#f1ead9; }
+  .stat-n{ font-size:30px; font-weight:800; color:var(--gold); font-variant-numeric:tabular-nums; line-height:1; }
+  .ico{ color:var(--gold); }
+  .lead{ font-size:15.5px; line-height:1.85; color:#3c3a33; }
+  .note{ font-size:14.5px; line-height:1.8; color:#46443c; }
 </style>
 </head>
 <body class="py-0 md:py-8">
 <div class="w-full max-w-[750px] mx-auto paper" style="max-width:750px;">
 
-  <!-- ===== Header ===== -->
-  <header class="header-grad blueprint text-white px-6 md:px-10 pt-10 pb-9 relative overflow-hidden">
-    <div class="absolute right-5 top-6 opacity-15 text-7xl"><i class="fa-solid fa-helmet-safety"></i></div>
-    <div class="text-xs tagline accent mb-3"><i class="fa-solid fa-hard-drive mr-1"></i> COMMUNITY DIGEST</div>
-    <h1 class="text-2xl md:text-3xl font-bold leading-snug">
-      地产<span class="accent">#校招生#</span>实名交流群
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead px-7 md:px-12 pt-9 pb-8">
+    <div class="flex items-center justify-between hair pt-3" style="border:0;">
+      <span class="kicker">COMMUNITY&nbsp;GAZETTE</span>
+      <span class="kicker">EST. 8 YEARS · 481 人</span>
+    </div>
+    <div class="hair mt-3 mb-5"></div>
+    <h1 class="nameplate serif font-bold">
+      <span class="block text-3xl md:text-4xl tracking-wide">地产<span style="color:var(--gold-soft)">·校招生·</span>实名交流群</span>
     </h1>
-    <p class="mt-2 text-sm text-gray-300">一群被地产筛选过的人，在寒冬里互相调味</p>
-    <div class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-gray-300">
-      <span><i class="fa-regular fa-calendar accent mr-1"></i> 2026.06.17 – 06.30 · 双周</span>
-      <span><i class="fa-regular fa-comments accent mr-1"></i> 4002 条消息</span>
-      <span><i class="fa-solid fa-people-group accent mr-1"></i> 481 人 · 群龄 8 年</span>
+    <p class="serif italic text-base md:text-lg mt-3" style="color:#cbc3b1;">
+      一群被地产筛选过的人，在寒冬里互相调味
+    </p>
+    <div class="meta-strip mt-6 text-[12.5px]" style="color:#bdb6a4;">
+      <span><i class="fa-regular fa-calendar ico mr-1"></i>2026.06.17 – 06.30 · 双周刊</span>
+      <span>4002 条消息</span>
+      <span>本年第 N 期</span>
     </div>
   </header>
-  <div class="rule"></div>
 
-  <main class="px-6 md:px-10 py-8">
+  <main class="px-7 md:px-12 py-9">
 
-    <!-- ===== 精华亮点荟萃 ===== -->
-    <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="sec-ico accent-bg text-white"><i class="fa-solid fa-star"></i></span>
-        <h2 class="text-xl font-bold text-gray-800">本期精华荟萃</h2>
+    <!-- ============ 卷首语 / 报头数据 ============ -->
+    <section class="mb-12">
+      <div class="grid grid-cols-3 gap-0 card rounded-lg overflow-hidden mb-7">
+        <div class="p-4 text-center border-r" style="border-color:var(--line)">
+          <div class="stat-n">4002</div><div class="text-[11px] mt-1.5" style="color:var(--muted)">消息总量</div>
+        </div>
+        <div class="p-4 text-center border-r" style="border-color:var(--line)">
+          <div class="stat-n">525</div><div class="text-[11px] mt-1.5" style="color:var(--muted)">榜首发言数</div>
+        </div>
+        <div class="p-4 text-center">
+          <div class="stat-n">14</div><div class="text-[11px] mt-1.5" style="color:var(--muted)">天 · 跨端午</div>
+        </div>
       </div>
-      <p class="text-[15px] leading-7 text-gray-600 mb-5">
-        群名写着「校招生」，可昵称早换成了「待业」「准失业」「转行人员」「待失业」。这两周里，大家一边看着写字楼一层层空掉，一边把日子过出花来——龙舟、相亲、骑行进藏、山姆拼单、A 股回血与亏钱。以下六条，是这个老群最真实的横切面。
+      <p class="lead">
+        群名写着「校招生」，可昵称早换成了「待业」「准失业」「转行人员」「待失业」。这两周，大家一边看着写字楼一层层空掉，一边把日子过出花来——龙舟、相亲、骑行进藏、山姆拼单、A&nbsp;股回血与亏钱。下面六条，是这个八年老群最真实的横切面。
       </p>
-      <div class="grid sm:grid-cols-2 gap-3">
-        <div class="card rounded-xl p-4"><span class="accent font-bold mr-1">01</span><span class="font-semibold text-gray-800">群魂鲁总</span><p class="text-sm text-gray-500 mt-1">去叠滘「做龙舟前期服务」的摸鱼领导学</p></div>
-        <div class="card rounded-xl p-4"><span class="accent font-bold mr-1">02</span><span class="font-semibold text-gray-800">相亲连续剧</span><p class="text-sm text-gray-500 mt-1">短剧导演与小红书征婚的翻车现场</p></div>
-        <div class="card rounded-xl p-4"><span class="accent font-bold mr-1">03</span><span class="font-semibold text-gray-800">行业冥灯实录</span><p class="text-sm text-gray-500 mt-1">楼空了，新能源正重走地产老路</p></div>
-        <div class="card rounded-xl p-4"><span class="accent font-bold mr-1">04</span><span class="font-semibold text-gray-800">单骑 318</span><p class="text-sm text-gray-500 mt-1">待业的唐总，活成全群最自由的人</p></div>
-        <div class="card rounded-xl p-4"><span class="accent font-bold mr-1">05</span><span class="font-semibold text-gray-800">发言排行榜</span><p class="text-sm text-gray-500 mt-1">被群友戏称的「工作摸鱼 KPI」</p></div>
-        <div class="card rounded-xl p-4"><span class="accent font-bold mr-1">06</span><span class="font-semibold text-gray-800">省钱图鉴</span><p class="text-sm text-gray-500 mt-1">山姆拼单、梦龙团购、3800 的「前 5%」</p></div>
+    </section>
+
+    <!-- ============ 01 精华荟萃 ============ -->
+    <section class="mb-14">
+      <div class="flex items-end gap-4 mb-6">
+        <span class="ghost-num serif">01</span>
+        <div class="pb-1">
+          <div class="sec-label">THE HIGHLIGHTS</div>
+          <div class="sec-title">本期精华荟萃</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="ed-item flex gap-4 py-4">
+          <span class="ed-num pt-1">01</span>
+          <div><div class="font-bold text-[16px]">群魂鲁总</div><div class="note">去叠滘「做龙舟前期服务」的摸鱼领导学</div></div>
+        </div>
+        <div class="ed-item flex gap-4 py-4">
+          <span class="ed-num pt-1">02</span>
+          <div><div class="font-bold text-[16px]">相亲连续剧</div><div class="note">短剧导演与小红书征婚的翻车现场</div></div>
+        </div>
+        <div class="ed-item flex gap-4 py-4">
+          <span class="ed-num pt-1">03</span>
+          <div><div class="font-bold text-[16px]">行业冥灯实录</div><div class="note">楼空了，新能源正重走地产老路</div></div>
+        </div>
+        <div class="ed-item flex gap-4 py-4">
+          <span class="ed-num pt-1">04</span>
+          <div><div class="font-bold text-[16px]">单骑 318</div><div class="note">待业的唐总，活成全群最自由的人</div></div>
+        </div>
+        <div class="ed-item flex gap-4 py-4">
+          <span class="ed-num pt-1">05</span>
+          <div><div class="font-bold text-[16px]">发言排行榜</div><div class="note">被群友戏称的「工作摸鱼 KPI」</div></div>
+        </div>
+        <div class="ed-item flex gap-4 py-4" style="border-bottom:1px solid var(--line)">
+          <span class="ed-num pt-1">06</span>
+          <div><div class="font-bold text-[16px]">省钱图鉴</div><div class="note">山姆拼单、梦龙团购、3800 的「前 5%」</div></div>
+        </div>
       </div>
     </section>
 
-    <!-- ===== 群魂鲁总 ===== -->
-    <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="sec-ico chip"><i class="fa-solid fa-crown"></i></span>
-        <h2 class="text-xl font-bold text-gray-800">群魂时刻：鲁总与他的江湖</h2>
+    <!-- ============ 02 群魂鲁总 ============ -->
+    <section class="mb-14">
+      <div class="flex items-end gap-4 mb-6">
+        <span class="ghost-num serif">02</span>
+        <div class="pb-1">
+          <div class="sec-label">THE CHAIRMAN</div>
+          <div class="sec-title">群魂时刻 · 鲁总与他的江湖</div>
+        </div>
       </div>
-      <p class="text-[15px] leading-7 text-gray-600 mb-4">
-        发言榜常年第一的「佛山 南海 投资 鲁埝坤」，端午跑去叠滘看 S 弯龙舟，自称「来做前期服务」「学习文化旅游产业打造」——被群友锐评为「领导是这样上班的」。他社交达人本色尽显：端午厦门赶两场舍友的局，给走了的舍友扫墓、替结婚的舍友站台；回头又把山姆会员副卡拉群友 AA「回血一半」。
+      <p class="lead mb-6">
+        发言榜常年第一的「佛山 南海 投资 鲁埝坤」，端午跑去叠滘看 S 弯龙舟，自称「来做前期服务」「学习文化旅游产业打造」——被群友锐评为「领导是这样上班的」。社交达人本色尽显：厦门赶两场舍友的局，给走了的舍友扫墓、替结婚的舍友站台；回头又把山姆会员副卡拉群友 AA「回血一半」。
       </p>
-      <div class="card rounded-xl p-5 mb-4">
-        <div class="text-sm text-gray-500 mb-2"><i class="fa-solid fa-wine-glass accent mr-1"></i> 凌晨的酒后真言</div>
-        <p class="text-[15px] leading-7 text-gray-800">「五个人舍友，一个人走了，一个人离了，一个人明天结婚。」——三两汾酒下肚，鲁总在群里敬了一句青春。中年人的况味，全在这一句里。</p>
+      <div class="deck rounded-lg p-6 mb-6">
+        <div class="sec-label mb-2" style="color:var(--gold-soft)"><i class="fa-solid fa-wine-glass mr-1"></i>凌晨的酒后真言</div>
+        <p class="serif text-[17px] leading-8">「五个人舍友，一个人走了，一个人离了，一个人明天结婚。」</p>
+        <p class="text-[13.5px] mt-3" style="color:#bdb6a4;">三两汾酒下肚，鲁总敬了一句青春。中年人的况味，全在这一句里。</p>
       </div>
-      <div class="quote rounded-r-lg p-4 text-[15px] leading-7 text-gray-700">
-        「人这一生吧，不能太用金钱来衡量（我没钱）。」<br>
-        「只是时代和历史的进程，剥夺了我想体会的权利。」
-        <div class="by text-xs mt-2">— 鲁埝坤 的两句招牌自嘲</div>
+      <div class="pull pl-7 my-2">
+        <span class="mark serif">“</span>
+        <p class="serif italic text-[18px] leading-9" style="color:#2b2a24;">
+          人这一生吧，不能太用金钱来衡量（我没钱）。<br>
+          只是时代和历史的进程，剥夺了我想体会的权利。
+        </p>
+        <div class="by text-[12.5px] mt-3">— 鲁埝坤 的两句招牌自嘲</div>
       </div>
-      <p class="by text-xs mt-3">贡献者：佛山 南海 投资 鲁埝坤</p>
+      <div class="hair-d mt-6 pt-3 by text-[12px]">贡献者 · 佛山 南海 投资 鲁埝坤</div>
     </section>
 
-    <!-- ===== 相亲连续剧 ===== -->
-    <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="sec-ico chip"><i class="fa-solid fa-heart-crack"></i></span>
-        <h2 class="text-xl font-bold text-gray-800">邱铁富相亲连续剧</h2>
+    <!-- ============ 03 相亲连续剧 ============ -->
+    <section class="mb-14">
+      <div class="flex items-end gap-4 mb-6">
+        <span class="ghost-num serif">03</span>
+        <div class="pb-1">
+          <div class="sec-label">THE SERIAL DRAMA</div>
+          <div class="sec-title">邱铁富相亲连续剧</div>
+        </div>
       </div>
-      <p class="text-[15px] leading-7 text-gray-600 mb-4">
+      <p class="lead mb-6">
         本期最长寿话题。合肥的邱铁富在小红书认识一位「北影出身的短剧导演」，见面发现是个「吃饭像饕餮」的胖男；她委婉冷淡后，对方开小号追着骂、骂完拉黑——「一分钱不花、陪聊天就算追我」。全群当场组成「保护我方铁富总」联盟，鲁总、桂欣总轮番下场，话题一路引出对 bro 攻击大龄女性、小红书征婚生态的集体吐槽。
       </p>
-      <div class="grid gap-3">
-        <div class="card rounded-xl p-4 text-[15px] leading-7 text-gray-800"><i class="fa-solid fa-quote-left accent mr-2"></i>「得不到就破防」「得不到就诋毁」——群友给渣男画像。</div>
-        <div class="card rounded-xl p-4 text-[15px] leading-7 text-gray-800"><i class="fa-solid fa-quote-left accent mr-2"></i>陈桂欣：「这种评论举报给平台，平台也不处理。」「他们想骂，刘亦菲都会被骂。」</div>
+      <div class="space-y-3">
+        <div class="card rounded-lg p-5 flex gap-4">
+          <i class="fa-solid fa-comment-dots ico text-lg mt-1"></i>
+          <p class="note text-[15px]">「得不到就破防」「得不到就诋毁」——群友给渣男画的像。</p>
+        </div>
+        <div class="card rounded-lg p-5 flex gap-4">
+          <i class="fa-solid fa-shield-halved ico text-lg mt-1"></i>
+          <p class="note text-[15px]">陈桂欣：「这种评论举报给平台，平台也不处理。」「他们想骂，刘亦菲都会被骂。」</p>
+        </div>
       </div>
-      <p class="by text-xs mt-3">贡献者：Hf-战略-邱铁富-合肥 · 深圳市二院-陈桂欣</p>
+      <div class="hair-d mt-6 pt-3 by text-[12px]">贡献者 · Hf-战略-邱铁富-合肥 · 深圳市二院-陈桂欣</div>
     </section>
 
-    <!-- ===== 行业体温（结论先行） ===== -->
-    <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="sec-ico chip"><i class="fa-solid fa-temperature-arrow-down"></i></span>
-        <h2 class="text-xl font-bold text-gray-800">寒冬里的行业体温</h2>
+    <!-- ============ 04 行业体温 ============ -->
+    <section class="mb-14">
+      <div class="flex items-end gap-4 mb-6">
+        <span class="ghost-num serif">04</span>
+        <div class="pb-1">
+          <div class="sec-label">THE COLD WINTER</div>
+          <div class="sec-title">寒冬里的行业体温</div>
+        </div>
       </div>
-      <div class="rounded-xl p-5 mb-4" style="background:#1c2530;color:#f1e9d8;">
-        <div class="text-xs accent tagline mb-2">本节结论</div>
-        <p class="text-[15px] leading-7">地产已被这群人当成「不住 ICU 的病人」反复调侃；更扎心的是，转去新能源的群友发现——疯狂扩张、政策约束、全面亏损，「完全是地产当年的路径」。一代校招生的集体焦虑，从一个塌方的行业，蔓延到了下一个。</p>
+
+      <div class="deck rounded-lg p-6 mb-6 border-l-4" style="border-color:var(--gold)">
+        <div class="sec-label mb-2" style="color:var(--gold-soft)">本节结论 · 先行</div>
+        <p class="text-[15.5px] leading-8">
+          地产已被这群人当成「不住 ICU 的病人」反复调侃；更扎心的是，转去新能源的群友发现——疯狂扩张、政策约束、全面亏损，「完全是地产当年的路径」。一代校招生的集体焦虑，正从一个塌方的行业，蔓延到下一个。
+        </p>
       </div>
-      <ul class="space-y-3 text-[15px] leading-7 text-gray-700">
-        <li class="flex gap-3"><i class="fa-solid fa-building-circle-xmark accent mt-1"></i><span><b>写字楼实证：</b>鲁总看着隔壁主楼 24 层，「以前外卖桌堆满，现在寥寥无几，一层一层都空了」。</span></li>
-        <li class="flex gap-3"><i class="fa-solid fa-droplet-slash accent mt-1"></i><span><b>黑色幽默：</b>「地产还能喝到血吗？」「地产为什么不住 ICU？」成了群内固定段子。</span></li>
-        <li class="flex gap-3"><i class="fa-solid fa-bolt accent mt-1"></i><span><b>行业冥灯：</b>从地产转广核的「宝总」黄宝柱自嘲「地产人不祥之兆」，直言新能源「政策扶持→疯狂扩张→政策约束→全面亏损，完全是地产当年的路径」。</span></li>
-        <li class="flex gap-3"><i class="fa-solid fa-user-tie accent mt-1"></i><span><b>招聘信号：</b>「我们通知不给社招，只允许校招了」——群友点破：降本增效，社招成本低。</span></li>
-        <li class="flex gap-3"><i class="fa-solid fa-coins accent mt-1"></i><span><b>薪资倒退：</b>回忆当年地产实习「本科 150、硕士 200 一天」，如今「快比现在还高了」。</span></li>
+
+      <ul class="space-y-0">
+        <li class="ed-item flex gap-4 py-4"><i class="fa-solid fa-building-circle-xmark ico mt-1"></i><p class="note"><b class="text-ink">写字楼实证 ——</b> 鲁总看着隔壁主楼 24 层，「以前外卖桌堆满，现在寥寥无几，一层一层都空了」。</p></li>
+        <li class="ed-item flex gap-4 py-4"><i class="fa-solid fa-droplet-slash ico mt-1"></i><p class="note"><b class="text-ink">黑色幽默 ——</b> 「地产还能喝到血吗？」「地产为什么不住 ICU？」成了群内固定段子。</p></li>
+        <li class="ed-item flex gap-4 py-4"><i class="fa-solid fa-bolt ico mt-1"></i><p class="note"><b class="text-ink">行业冥灯 ——</b> 从地产转广核的「宝总」黄宝柱自嘲「地产人不祥之兆」，直言新能源「政策扶持→疯狂扩张→政策约束→全面亏损，完全是地产当年的路径」。</p></li>
+        <li class="ed-item flex gap-4 py-4"><i class="fa-solid fa-user-tie ico mt-1"></i><p class="note"><b class="text-ink">招聘信号 ——</b> 「我们通知不给社招，只允许校招了」，群友点破：降本增效，社招成本低。</p></li>
+        <li class="ed-item flex gap-4 py-4" style="border-bottom:1px solid var(--line)"><i class="fa-solid fa-coins ico mt-1"></i><p class="note"><b class="text-ink">薪资倒退 ——</b> 回忆当年地产实习「本科 150、硕士 200 一天」，如今「快比现在还高了」。</p></li>
       </ul>
-      <p class="text-[15px] leading-7 text-gray-600 mt-4">穿插其间的，还有对仕官生「下半场陪酒」「PC 第三场」等行业潜规则的坦白局——一代人对那套生态，既熟悉又厌倦。</p>
-      <p class="by text-xs mt-3">贡献者：鲁埝坤 · 黄宝柱 · 邱铁富 · 邓帆</p>
+      <p class="note mt-5">穿插其间的，还有对仕官生「下半场陪酒」「PC 第三场」等行业潜规则的坦白局——一代人对那套生态，既熟悉又厌倦。</p>
+      <div class="hair-d mt-6 pt-3 by text-[12px]">贡献者 · 鲁埝坤 · 黄宝柱 · 邱铁富 · 邓帆</div>
     </section>
 
-    <!-- ===== 单骑318 & 远方 ===== -->
-    <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="sec-ico chip"><i class="fa-solid fa-person-biking"></i></span>
-        <h2 class="text-xl font-bold text-gray-800">远方与附近：两位独立女性</h2>
+    <!-- ============ 05 远方 ============ -->
+    <section class="mb-14">
+      <div class="flex items-end gap-4 mb-6">
+        <span class="ghost-num serif">05</span>
+        <div class="pb-1">
+          <div class="sec-label">THE OPEN ROAD</div>
+          <div class="sec-title">远方与附近 · 两位独立女性</div>
+        </div>
       </div>
-      <p class="text-[15px] leading-7 text-gray-600 mb-4">
+      <p class="lead mb-6">
         群里待业的「破棉袄大王 / 唐明闽」一个人骑行 318 进藏，6998 的 24 天保障团、雨季连骑三天、修车花掉一千、前方塌方——却被全群羡慕成「本群两位独立女性」之一。另一位是 DIY 旅行的桂欣总，被金鹏航空延误两小时「都到跑道上又开回来」，怒打「避雷」。鲁总感叹：「啥时候我也可以疯狂一次」「我连国门都没出过」。
       </p>
-      <div class="quote rounded-r-lg p-4 text-[15px] leading-7 text-gray-700">
-        「其实我觉得 318 真的被神话了，不知道是谁想出『此生必驾』这个梗的——必个锤子。」
-        <div class="by text-xs mt-2">— 待业-唐明闽-重庆，在波密的雨里</div>
+      <div class="pull pl-7 my-2">
+        <span class="mark serif">“</span>
+        <p class="serif italic text-[18px] leading-9" style="color:#2b2a24;">
+          其实我觉得 318 真的被神话了，不知道是谁想出「此生必驾」这个梗的——必个锤子。
+        </p>
+        <div class="by text-[12.5px] mt-3">— 待业-唐明闽-重庆，在波密的雨里</div>
       </div>
-      <p class="text-[15px] leading-7 text-gray-600 mt-4">
+      <p class="note mt-6">
         与远方对照的，是群里的「马年宝宝潮」。陈闽沙、何花、温盈秋几位准妈妈在线交流孕期体重、糖耐与梦龙冰淇淋——寒冬之外，生活照常生长。
       </p>
-      <p class="by text-xs mt-3">贡献者：待业-唐明闽 · 深圳市二院-陈桂欣 · 招行-陈闽沙</p>
+      <div class="hair-d mt-6 pt-3 by text-[12px]">贡献者 · 待业-唐明闽 · 深圳市二院-陈桂欣 · 招行-陈闽沙</div>
     </section>
 
-    <!-- ===== 发言排行榜（数据型） ===== -->
-    <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="sec-ico chip"><i class="fa-solid fa-ranking-star"></i></span>
-        <h2 class="text-xl font-bold text-gray-800">发言排行榜 · 本群「摸鱼 KPI」</h2>
+    <!-- ============ 06 排行榜 ============ -->
+    <section class="mb-14">
+      <div class="flex items-end gap-4 mb-6">
+        <span class="ghost-num serif">06</span>
+        <div class="pb-1">
+          <div class="sec-label">THE LEADERBOARD</div>
+          <div class="sec-title">发言排行榜 · 本群「摸鱼 KPI」</div>
+        </div>
       </div>
-      <p class="text-[15px] leading-7 text-gray-600 mb-4">
+      <p class="lead mb-6">
         群成员 Viy（朱怡帆）导出 25 年与 26 上半年发言 20 强，瞬间点燃全群——被 L.Y 锐评为「本群工作摸鱼排行榜」。Viy 也观察到：「今年群热度不如去年，去年还能发社群小周报呢，可能是地产复苏了，大家都忙起来了。」一句调侃，半句真心。
       </p>
-      <div class="grid grid-cols-3 gap-3 mb-4">
-        <div class="card rounded-xl p-4 text-center"><div class="text-2xl font-bold accent">525</div><div class="text-xs text-gray-500 mt-1">鲁埝坤<br>榜首</div></div>
-        <div class="card rounded-xl p-4 text-center"><div class="text-2xl font-bold accent">480</div><div class="text-xs text-gray-500 mt-1">邱铁富<br>次席</div></div>
-        <div class="card rounded-xl p-4 text-center"><div class="text-2xl font-bold accent">406</div><div class="text-xs text-gray-500 mt-1">陈桂欣<br>季军</div></div>
+      <div class="card rounded-lg overflow-hidden mb-6">
+        <div class="flex items-center justify-between px-5 py-4 border-b" style="border-color:var(--line)">
+          <div class="flex items-center gap-3"><span class="tag rounded px-2 py-0.5">冠</span><span class="font-semibold">佛山 南海 投资 鲁埝坤</span></div>
+          <span class="stat-n text-2xl">525</span>
+        </div>
+        <div class="flex items-center justify-between px-5 py-4 border-b" style="border-color:var(--line)">
+          <div class="flex items-center gap-3"><span class="tag rounded px-2 py-0.5" style="background:#5a5346">亚</span><span class="font-semibold">Hf-战略-邱铁富-合肥</span></div>
+          <span class="stat-n text-2xl">480</span>
+        </div>
+        <div class="flex items-center justify-between px-5 py-4">
+          <div class="flex items-center gap-3"><span class="tag rounded px-2 py-0.5" style="background:#8a6a2f">季</span><span class="font-semibold">深圳市二院-陈桂欣</span></div>
+          <span class="stat-n text-2xl">406</span>
+        </div>
       </div>
-      <div class="quote rounded-r-lg p-4 text-[15px] leading-7 text-gray-700">
-        「群里的都是被地产行业筛选过的精英。」
-        <div class="by text-xs mt-2">— Viy（朱怡帆），为这个 8 年老群下的注脚</div>
+      <div class="pull pl-7 my-2">
+        <span class="mark serif">“</span>
+        <p class="serif italic text-[18px] leading-9" style="color:#2b2a24;">群里的，都是被地产行业筛选过的精英。</p>
+        <div class="by text-[12.5px] mt-3">— Viy（朱怡帆），为这个八年老群下的注脚</div>
       </div>
-      <p class="by text-xs mt-3">贡献者：Lepro-人力-朱怡帆（Viy）</p>
+      <div class="hair-d mt-6 pt-3 by text-[12px]">贡献者 · Lepro-人力-朱怡帆（Viy）</div>
     </section>
 
-    <!-- ===== 省钱图鉴 ===== -->
-    <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="sec-ico chip"><i class="fa-solid fa-piggy-bank"></i></span>
-        <h2 class="text-xl font-bold text-gray-800">省钱过日子图鉴</h2>
+    <!-- ============ 07 省钱图鉴 ============ -->
+    <section class="mb-14">
+      <div class="flex items-end gap-4 mb-6">
+        <span class="ghost-num serif">07</span>
+        <div class="pb-1">
+          <div class="sec-label">FRUGAL LIVING</div>
+          <div class="sec-title">省钱过日子图鉴</div>
+        </div>
       </div>
-      <p class="text-[15px] leading-7 text-gray-600 mb-4">
-        消费降级是这两周的底色：京东薅消费券、梦龙冰淇淋团购（12 件 139）、山姆主卡拉三城群友 AA、相机镜头「一试驾就祛魅」、迪子割肉亏 6k「一个月生活费没了」、鸡蛋从春节三四块涨到六七块一斤。聊到收入，张国宇调侃「前 5% 是前 24 名，一个月 3800 肯定是有了」，破棉袄大王自认「倒数 1%」。
+      <p class="lead mb-6">
+        消费降级是这两周的底色：京东薅消费券、梦龙团购（12 件 139）、山姆主卡拉三城群友 AA、相机镜头「一试驾就祛魅」、迪子割肉亏 6k「一个月生活费没了」、鸡蛋从春节三四块涨到六七块一斤。聊到收入，张国宇调侃「前 5% 是前 24 名，一个月 3800 肯定是有了」，破棉袄大王自认「倒数 1%」。
       </p>
       <div class="grid sm:grid-cols-2 gap-3">
-        <div class="card rounded-xl p-4 text-sm text-gray-700"><i class="fa-solid fa-ice-cream accent mr-2"></i>梦龙团购、山姆拼单 AA：群友把会员经济玩成了互助经济。</div>
-        <div class="card rounded-xl p-4 text-sm text-gray-700"><i class="fa-solid fa-car accent mr-2"></i>沃尔沃试驾「一下子祛魅」，转头买了小鹏；领克 09 被荐为「换壳 XC90」。</div>
-        <div class="card rounded-xl p-4 text-sm text-gray-700"><i class="fa-solid fa-chart-line accent mr-2"></i>A 股「天天 4000 家绿、大盘还红」，老登股与科技股冰火两重天。</div>
-        <div class="card rounded-xl p-4 text-sm text-gray-700"><i class="fa-solid fa-egg accent mr-2"></i>鸡蛋涨价、金价 8 字头——日常物价成了新的群聊指标。</div>
+        <div class="card rounded-lg p-4 note text-[14.5px] flex gap-3"><i class="fa-solid fa-ice-cream ico mt-0.5"></i><span>梦龙团购、山姆拼单 AA：群友把会员经济玩成了互助经济。</span></div>
+        <div class="card rounded-lg p-4 note text-[14.5px] flex gap-3"><i class="fa-solid fa-car-side ico mt-0.5"></i><span>沃尔沃试驾「一下子祛魅」，转头买了小鹏；领克 09 被荐为「换壳 XC90」。</span></div>
+        <div class="card rounded-lg p-4 note text-[14.5px] flex gap-3"><i class="fa-solid fa-chart-line ico mt-0.5"></i><span>A 股「天天 4000 家绿、大盘还红」，老登股与科技股冰火两重天。</span></div>
+        <div class="card rounded-lg p-4 note text-[14.5px] flex gap-3"><i class="fa-solid fa-egg ico mt-0.5"></i><span>鸡蛋涨价、金价 8 字头——日常物价成了新的群聊指标。</span></div>
       </div>
-      <p class="by text-xs mt-3">贡献者：蚂蚁-李峰（穆）· 深圳市二院-陈桂欣 · 张国宇 · 徐晓辉</p>
+      <div class="hair-d mt-6 pt-3 by text-[12px]">贡献者 · 蚂蚁-李峰（穆）· 深圳市二院-陈桂欣 · 张国宇 · 徐晓辉</div>
     </section>
 
-    <!-- ===== 金句 ===== -->
-    <section class="mb-4">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="sec-ico accent-bg text-white"><i class="fa-solid fa-quote-right"></i></span>
-        <h2 class="text-xl font-bold text-gray-800">本期金句</h2>
+    <!-- ============ 金句 ============ -->
+    <section>
+      <div class="flex items-end gap-4 mb-6">
+        <span class="ghost-num serif">08</span>
+        <div class="pb-1">
+          <div class="sec-label">QUOTES OF THE FORTNIGHT</div>
+          <div class="sec-title">本期金句</div>
+        </div>
       </div>
-      <div class="space-y-3">
-        <div class="quote rounded-r-lg p-4 text-[15px] leading-7 text-gray-700">「这也是本群工作摸鱼排行榜。」<div class="by text-xs mt-1">— 前招蛇转行人员 刘毅</div></div>
-        <div class="quote rounded-r-lg p-4 text-[15px] leading-7 text-gray-700">「地产为什么不住 ICU？」<div class="by text-xs mt-1">— 佛山-营销-孙泽文</div></div>
-        <div class="quote rounded-r-lg p-4 text-[15px] leading-7 text-gray-700">「我没摸鱼，我都失业人士了，每天就看你们在摸鱼。」<div class="by text-xs mt-1">— 失业 郭志康 广州</div></div>
-        <div class="quote rounded-r-lg p-4 text-[15px] leading-7 text-gray-700">「人不是老了才会死，而是随时都会死。」<div class="by text-xs mt-1">— Md-待失业-刘瑶（六幺）</div></div>
+      <div class="space-y-0">
+        <div class="ed-item py-5"><p class="serif text-[16.5px] leading-8">「这也是本群工作摸鱼排行榜。」</p><div class="by text-[12px] mt-1.5">前招蛇转行人员 刘毅</div></div>
+        <div class="ed-item py-5"><p class="serif text-[16.5px] leading-8">「地产为什么不住 ICU？」</p><div class="by text-[12px] mt-1.5">佛山-营销-孙泽文</div></div>
+        <div class="ed-item py-5"><p class="serif text-[16.5px] leading-8">「我没摸鱼，我都失业人士了，每天就看你们在摸鱼。」</p><div class="by text-[12px] mt-1.5">失业 郭志康 广州</div></div>
+        <div class="ed-item py-5" style="border-bottom:1px solid var(--line)"><p class="serif text-[16.5px] leading-8">「人不是老了才会死，而是随时都会死。」</p><div class="by text-[12px] mt-1.5">Md-待失业-刘瑶（六幺）</div></div>
       </div>
     </section>
 
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer class="header-grad text-gray-300 px-6 md:px-10 py-7 text-center">
-    <div class="accent text-sm font-semibold mb-1"><i class="fa-solid fa-helmet-safety mr-1"></i> 地产#校招生#实名交流群</div>
-    <p class="text-xs leading-6">双周报 · 覆盖 2026.06.17–06.30 · 共 4002 条消息<br>愿这群被行业筛选过的人，都熬过这个长冬。</p>
+  <!-- ============ FOOTER ============ -->
+  <footer class="masthead px-7 md:px-12 py-8 text-center" style="border-top:4px solid var(--gold)">
+    <div class="serif text-lg font-bold" style="color:var(--gold-soft)">地产 · 校招生 · 实名交流群</div>
+    <div class="hair mt-3 mb-4" style="max-width:120px;margin-left:auto;margin-right:auto;"></div>
+    <p class="text-[12.5px] leading-6" style="color:#bdb6a4;">
+      双周刊 · 覆盖 2026.06.17 – 06.30 · 共 4002 条消息<br>
+      愿这群被行业筛选过的人，都熬过这个长冬。
+    </p>
   </footer>
 
 </div>
