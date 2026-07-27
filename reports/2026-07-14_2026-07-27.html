@@ -4,351 +4,999 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>地产#校招生#实名交流群 · 双周报 2026.07.14—07.27</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
-  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Tahoma,Arial,Roboto,sans-serif;background:#f4f5f7;color:#1f2933;-webkit-font-smoothing:antialiased;}
-  .wrap{width:100%;max-width:750px;margin:0 auto;}
-  .hd{background:linear-gradient(135deg,#0f2740 0%,#1b3f63 55%,#27567f 100%);position:relative;overflow:hidden;}
-  .hd::after{content:"";position:absolute;right:-40px;bottom:-40px;width:180px;height:180px;border:14px solid rgba(255,255,255,.05);border-radius:50%;}
-  .hd-rule{height:5px;background:linear-gradient(90deg,#f0a500 0%,#f0a500 32%,#2b6cb0 32%,#2b6cb0 66%,#e2e8f0 66%);}
-  .card{background:#fff;border-radius:14px;box-shadow:0 1px 2px rgba(16,42,67,.06),0 8px 24px -12px rgba(16,42,67,.18);}
-  .kicker{letter-spacing:.22em;}
-  .sum{background:#f7f9fc;border-left:4px solid #2b6cb0;}
-  .byline{color:#7b8794;font-size:12px;line-height:1.7;}
-  .qt{border-left:4px solid #f0a500;background:linear-gradient(90deg,#fffaf0 0%,#ffffff 100%);}
-  .tag{background:#eaf1f8;color:#1b3f63;}
-  .bar{background:linear-gradient(90deg,#2b6cb0,#4a90c9);border-radius:3px;height:8px;}
-  .dot{width:7px;height:7px;border-radius:50%;background:#f0a500;flex:none;margin-top:8px;}
-  .lead{border-radius:12px;background:#0f2740;color:#e8eef5;}
-  li{line-height:1.8;}
-  p{line-height:1.85;}
+:root {
+  --bg: #faf9f7;
+  --paper: #ffffff;
+  --ink: #1c1917;
+  --ink-soft: #44403c;
+  --muted: #78716c;
+  --line: #e7e5e4;
+  --accent: #b45309;
+  --accent-soft: #fef3e2;
+  --accent-dark: #92400e;
+  --navy: #1a2332;
+  --navy-soft: #243447;
+  --gold: #d97706;
+  --quote-bg: #fffaf0;
+  --shadow: 0 1px 2px rgba(28,25,23,.04), 0 8px 24px -12px rgba(28,25,23,.08);
+  --shadow-lg: 0 4px 6px -1px rgba(28,25,23,.05), 0 20px 40px -16px rgba(28,25,23,.12);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --sans: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --serif: "Noto Serif SC", "Songti SC", "SimSun", serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.8;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+/* ---------- Layout ---------- */
+.page {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  max-width: 1080px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* ---------- TOC ---------- */
+.toc {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 48px 24px 32px 32px;
+  overflow-y: auto;
+  border-right: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.toc-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.toc a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 0;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.5;
+  border-left: 2px solid transparent;
+  padding-left: 14px;
+  margin-left: -14px;
+  transition: color .2s, border-color .2s;
+}
+
+.toc a:hover {
+  color: var(--ink);
+}
+
+.toc a.active {
+  color: var(--accent-dark);
+  border-left-color: var(--accent);
+  font-weight: 500;
+}
+
+.toc .toc-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: .6;
+  min-width: 18px;
+}
+
+/* ---------- Main ---------- */
+main {
+  padding: 0 0 80px;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-soft) 60%, #2b3f58 100%);
+  color: #f5f5f4;
+  padding: 64px 56px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: 15%;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(255,255,255,.04);
+  border-radius: 50%;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.hero-kicker i {
+  font-size: 14px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: .01em;
+  margin-bottom: 14px;
+}
+
+.hero-sub {
+  color: #a8b4c4;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: .02em;
+  margin-bottom: 40px;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 520px;
+}
+
+.hero-stat {
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  text-align: center;
+}
+
+.hero-stat .num {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.hero-stat .label {
+  font-size: 12px;
+  color: #a8b4c4;
+  margin-top: 4px;
+  letter-spacing: .04em;
+}
+
+/* ---------- Content ---------- */
+.content {
+  padding: 40px 56px 0;
+}
+
+/* ---------- Section ---------- */
+.section {
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 28px;
+  overflow: hidden;
+  transition: box-shadow .25s ease;
+}
+
+.section:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 28px 32px 0;
+}
+
+.section-num {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.section-body {
+  padding: 20px 32px 32px;
+}
+
+.section-body > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Intro paragraph ---------- */
+.intro {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin-bottom: 22px;
+  max-width: 62ch;
+}
+
+/* ---------- Lists ---------- */
+.list {
+  list-style: none;
+}
+
+.list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 14px;
+  color: var(--ink-soft);
+}
+
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.list strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---------- Date tag ---------- */
+.date-tag {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin-right: 6px;
+  letter-spacing: .02em;
+}
+
+/* ---------- Lead / conclusion box ---------- */
+.lead-box {
+  background: var(--navy);
+  color: #e7e5e4;
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+  margin-bottom: 22px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.lead-box strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ---------- Quote ---------- */
+.quote {
+  position: relative;
+  background: var(--quote-bg);
+  border-radius: var(--radius-sm);
+  padding: 22px 26px 22px 30px;
+  margin: 22px 0;
+}
+
+.quote::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent);
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.quote p {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.75;
+}
+
+.quote cite {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* ---------- Summary / takeaway ---------- */
+.takeaway {
+  background: #f5f5f4;
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--line);
+}
+
+.takeaway .byline {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* ---------- Chart ---------- */
+.chart {
+  margin: 24px 0 20px;
+}
+
+.chart-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.chart-row .date {
+  width: 64px;
+  flex-shrink: 0;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-row .bar-wrap {
+  flex: 1;
+  height: 10px;
+  background: #f5f5f4;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.chart-row .bar {
+  height: 100%;
+  background: linear-gradient(90deg, #d6d3d1, #a8a29e);
+  border-radius: 100px;
+  transition: width .6s cubic-bezier(.16, 1, .3, 1);
+}
+
+.chart-row .bar.peak {
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+}
+
+.chart-row .value {
+  width: 36px;
+  text-align: right;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-row .value.peak {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+/* ---------- Subsection ---------- */
+.subsection {
+  margin-bottom: 24px;
+}
+
+.subsection:last-child {
+  margin-bottom: 0;
+}
+
+.subsection-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subsection-title i {
+  color: var(--accent);
+  font-size: 14px;
+}
+
+/* ---------- Editor note ---------- */
+.editor-note {
+  border-top: 4px solid var(--accent);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 40px 32px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer .footer-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+/* ---------- Animations ---------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .toc {
+    display: none;
+  }
+
+  .hero {
+    padding: 48px 24px 36px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .hero-stat {
+    padding: 14px 10px;
+  }
+
+  .hero-stat .num {
+    font-size: 22px;
+  }
+
+  .content {
+    padding: 24px 16px 0;
+  }
+
+  .section-head {
+    padding: 24px 20px 0;
+  }
+
+  .section-body {
+    padding: 16px 20px 24px;
+  }
+
+  .section-title {
+    font-size: 19px;
+  }
+
+  .quote p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .hero-stat .label {
+    margin-top: 0;
+  }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  body { background: #fff; }
+  .page { grid-template-columns: 1fr; max-width: none; }
+  .toc { display: none; }
+  .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section { box-shadow: none; border: 1px solid var(--line); break-inside: avoid; }
+  .fade-up { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
-<div class="wrap w-full max-w-[750px] mx-auto" style="max-width:750px;">
+<div class="page">
 
-  <!-- ============ 页眉 ============ -->
-  <header class="hd px-6 pt-10 pb-8 md:px-10 md:pt-12 md:pb-10">
-    <div class="relative" style="z-index:2;">
-      <div class="flex items-center mb-5">
-        <span class="inline-flex items-center justify-center rounded-lg" style="width:38px;height:38px;background:rgba(240,165,0,.16);">
-          <i class="fa-solid fa-building-columns" style="color:#f0a500;font-size:17px;"></i>
-        </span>
-        <span class="kicker ml-3 text-xs font-semibold" style="color:#f0a500;">COMMUNITY WEEKLY · 社群双周报</span>
-      </div>
-      <h1 class="text-2xl md:text-3xl font-bold text-white leading-snug">地产#校招生#实名交流群</h1>
-      <p class="mt-2 text-sm" style="color:#a9c2da;">2026 年 07 月 14 日 — 07 月 27 日 · 十四天群聊实录</p>
+  <!-- ============ 侧边导航 ============ -->
+  <nav class="toc" id="toc">
+    <div class="toc-label">本期目录</div>
+    <a href="#essence"><span class="toc-num">01</span>本期精华</a>
+    <a href="#rhythm"><span class="toc-num">02</span>群聊节律</a>
+    <a href="#stock"><span class="toc-num">03</span>长鑫科技</a>
+    <a href="#leave"><span class="toc-num">04</span>请假羞耻</a>
+    <a href="#industry"><span class="toc-num">05</span>行业体感</a>
+    <a href="#mutual"><span class="toc-num">06</span>互助台</a>
+    <a href="#city"><span class="toc-num">07</span>城市观察</a>
+    <a href="#food"><span class="toc-num">08</span>美食地图</a>
+    <a href="#quotes"><span class="toc-num">09</span>本期金句</a>
+    <a href="#bits"><span class="toc-num">10</span>还有这些小事</a>
+    <a href="#editor"><span class="toc-num">11</span>编辑手记</a>
+  </nav>
 
-      <div class="mt-7 grid grid-cols-3 gap-3">
-        <div class="rounded-lg px-3 py-3 text-center" style="background:rgba(255,255,255,.07);">
-          <div class="text-xl md:text-2xl font-bold text-white">3,463</div>
-          <div class="text-xs mt-1" style="color:#a9c2da;">条消息</div>
+  <!-- ============ 主内容 ============ -->
+  <main>
+    <!-- ============ 页眉 ============ -->
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="hero-kicker">
+          <i class="fa-solid fa-building-columns"></i>
+          <span>COMMUNITY WEEKLY · 社群双周报</span>
         </div>
-        <div class="rounded-lg px-3 py-3 text-center" style="background:rgba(255,255,255,.07);">
-          <div class="text-xl md:text-2xl font-bold text-white">105</div>
-          <div class="text-xs mt-1" style="color:#a9c2da;">位发言者</div>
-        </div>
-        <div class="rounded-lg px-3 py-3 text-center" style="background:rgba(255,255,255,.07);">
-          <div class="text-xl md:text-2xl font-bold text-white">13</div>
-          <div class="text-xs mt-1" style="color:#a9c2da;">个热闹日</div>
+        <h1>地产#校招生#实名交流群</h1>
+        <p class="hero-sub">2026 年 07 月 14 日 — 07 月 27 日 · 十四天群聊实录</p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">3,463</div>
+            <div class="label">条消息</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">105</div>
+            <div class="label">位发言者</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">13</div>
+            <div class="label">个热闹日</div>
+          </div>
         </div>
       </div>
+    </header>
+
+    <div class="content">
+
+      <!-- ============ 本期精华 ============ -->
+      <section class="section fade-up" id="essence">
+        <div class="section-head">
+          <div class="section-num">01</div>
+          <h2 class="section-title">本期精华 · 六个高光切面</h2>
+        </div>
+        <div class="section-body">
+          <p class="intro">
+            这是一群 2018 年前后进地产的同届人。八年过去，他们散在房企、代建、国企、政府投促、医院基建、高校后勤、互联网大厂和待业名单里。这两周群里没有宏大叙事，只有三千多条日常：有人中签长鑫一夜赚两万，有人为三天年假被领导追问到憋屈，有人在暴雨里骑车环粤，有人在讨论膝盖为什么三十岁就坏了。以下六件事，是这段时间群聊真正的重量所在。
+          </p>
+          <ul class="list">
+            <li><strong>长鑫科技打新闭环</strong> —— 从 07/17 中签短信到 07/27 上市开盘，一签两万、五签十万，群里现场兑现</li>
+            <li><strong>"你们有请假羞耻吗"</strong> —— 一句提问炸出全群，牵出育儿假、年终奖、离职理由和权力的分寸</li>
+            <li><strong>行业下行的体感切片</strong> —— 龙湖代建降薪、"目视法"报产值、碧桂园卖飞长鑫痛失 470 亿</li>
+            <li><strong>互助台开张</strong> —— 百万医疗险、洗地机、香港求职、膝盖康复，四场高信息密度的众筹答疑</li>
+            <li><strong>深圳地铁安检全覆盖</strong> —— 一桩恶性案件之后，一座城市的通勤在两天内收紧又松动</li>
+            <li><strong>全国美食版图共建</strong> —— 从驻京办到潮汕生腌到广州御三家，一份群友众筹的味觉地图</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ 群聊节律 ============ -->
+      <section class="section fade-up" id="rhythm">
+        <div class="section-head">
+          <div class="section-num">02</div>
+          <h2 class="section-title">群聊节律</h2>
+        </div>
+        <div class="section-body">
+          <div class="chart">
+            <div class="chart-row"><span class="date">07/14 二</span><div class="bar-wrap"><div class="bar" style="width:56%"></div></div><span class="value">434</span></div>
+            <div class="chart-row"><span class="date">07/15 三</span><div class="bar-wrap"><div class="bar" style="width:16%"></div></div><span class="value">125</span></div>
+            <div class="chart-row"><span class="date">07/16 四</span><div class="bar-wrap"><div class="bar" style="width:16%"></div></div><span class="value">121</span></div>
+            <div class="chart-row"><span class="date">07/17 五</span><div class="bar-wrap"><div class="bar" style="width:30%"></div></div><span class="value">230</span></div>
+            <div class="chart-row"><span class="date">07/19 日</span><div class="bar-wrap"><div class="bar" style="width:15%"></div></div><span class="value">115</span></div>
+            <div class="chart-row"><span class="date">07/20 一</span><div class="bar-wrap"><div class="bar" style="width:35%"></div></div><span class="value">273</span></div>
+            <div class="chart-row"><span class="date">07/21 二</span><div class="bar-wrap"><div class="bar" style="width:57%"></div></div><span class="value">439</span></div>
+            <div class="chart-row"><span class="date">07/22 三</span><div class="bar-wrap"><div class="bar" style="width:17%"></div></div><span class="value">131</span></div>
+            <div class="chart-row"><span class="date">07/23 四</span><div class="bar-wrap"><div class="bar" style="width:45%"></div></div><span class="value">347</span></div>
+            <div class="chart-row"><span class="date">07/24 五</span><div class="bar-wrap"><div class="bar" style="width:50%"></div></div><span class="value">386</span></div>
+            <div class="chart-row"><span class="date">07/25 六</span><div class="bar-wrap"><div class="bar" style="width:4%"></div></div><span class="value">25</span></div>
+            <div class="chart-row"><span class="date">07/26 日</span><div class="bar-wrap"><div class="bar" style="width:9%"></div></div><span class="value">67</span></div>
+            <div class="chart-row"><span class="date">07/27 一</span><div class="bar-wrap"><div class="bar peak" style="width:100%"></div></div><span class="value peak">770</span></div>
+          </div>
+
+          <div class="takeaway">
+            工作日白天是主战场，周末几乎静音——07/25 全天只有 25 条。<strong>07/27 周一 770 条</strong>创下双周峰值：上午长鑫上市集体开奖，下午一路聊到相亲经济学、膝盖康复和一个"许愿成真"的戏剧性收尾。
+            <div class="byline">最活跃十位：佛山 南海 投资 鲁埝坤（496）· 穆（388）· Hf-战略-邱铁富-合肥（238）· 深圳市第二人民医院-陈桂欣（180）· 黄宝柱（180）· 徐（152）· 破棉袄大王（103）· 风（101）· 司言（81）· 六幺（77）</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 长鑫科技 ============ -->
+      <section class="section fade-up" id="stock">
+        <div class="section-head">
+          <div class="section-num">03</div>
+          <h2 class="section-title">长鑫科技：一场十天的集体开奖</h2>
+        </div>
+        <div class="section-body">
+          <div class="lead-box">
+            <strong>结论先行：</strong>
+            群里两位中签者在 07/27 开盘一小时内落袋——L.Y 一签 500 股赚约 2 万、"今年刚好回本"；邱铁富中五签、约 10 万到手。而真正被反复讨论的，是那些拿股权的长鑫员工：三年解禁、离职十年解禁，纸面财富未必兑现。
+          </div>
+
+          <ul class="list">
+            <li><span class="date-tag">07/14</span>FQW 甩出发行价 8.66 元，问"老板们，打新么"，回声是一片"没资格"。</li>
+            <li><span class="date-tag">07/17</span>L.Y 收到东财中签短信、缴款 4330 元，一句"今天唯一的安慰"——那天正是 A 股半导体普跌的一天。</li>
+            <li><span class="date-tag">07/27</span>开盘冲到 3.3 万亿盘子，L.Y 五倍卖出，"帮我今年回本了"；邱铁富晒出五签。杨雅雯、煜良在旁边算账。</li>
+            <li><strong>冷静派：</strong>大椿判断"长鑫最多值 5000 亿，三年五年之后这轮硬件叙事都结束了"；黄宝柱补充持股平台规则——卖出需公司同意，一年两次机会。</li>
+            <li><strong>合肥切面：</strong>邱铁富说长鑫员工现在是本地相亲市场的天花板，"王婆相亲台上一报单位，下面喔喔一片"；但研发加班到只能做周末夫妻，聊微信都要避保密。</li>
+            <li><strong>行业回响：</strong>余地转来"碧桂园卖飞长鑫科技，痛失 470 亿"——同一支股票，在这个群里同时意味着运气、纪律和一个时代的错身。</li>
+          </ul>
+
+          <div class="takeaway">
+            新股是这两周唯一让全群同时兴奋的东西，但它照出的其实是落差：能中签的靠运气，能拿股权的要熬三年，而更多人只是围观并调侃"没资格"。群里最清醒的两句都不来自赢家——"三年五年之后这轮叙事就结束了"，和"离职员工十年解禁"。
+            <div class="byline">贡献者：L.Y、Hf-战略-邱铁富-合肥、黄宝柱、大椿、FQW、余地</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 请假羞耻 ============ -->
+      <section class="section fade-up" id="leave">
+        <div class="section-head">
+          <div class="section-num">04</div>
+          <h2 class="section-title">"各位都有请假羞耻吗"</h2>
+        </div>
+        <div class="section-body">
+          <p class="intro">
+            07/14 下午四点，六幺发问：一年难请一次假，请了三天，领导回一句"这么久啊"，该怎么回。这条消息把当天下午整条聊天线索都拽了过去，是本期参与人数最多、也最有共鸣的一场讨论。
+          </p>
+
+          <div class="quote">
+            <p>"群里大小差不多 500 人，我想问问各位当了领导的，出于什么原因要问你请假干嘛去。"</p>
+            <cite>—— 六幺</cite>
+          </div>
+
+          <ul class="list">
+            <li><strong>假期的账本：</strong>司言今年已请 13.5 天（年假＋十天育儿假），"说都不说直接提 OA"；陈桂欣年假只剩 1 天，担心中秋国庆批不下来；黄宝柱七天年假一天没休，"要是能折成钱就好了"。大椿科普独生子女护理假 5–15 天，"五天是无条件的"。</li>
+            <li><strong>一次真实的离职原因：</strong>保利-设计-张丹璐说，自己离开保利的导火索之一，是 OA 上明明能选的育儿假，领导装作没看到、拖了几天最后没批，"系统上都能选得出来，还要装作不知道"。</li>
+            <li><strong>交换条件失效之后：</strong>司言一针见血——"请假难的朋友，是不是都还有绩效或者奖金领导可以分配"；黄宝柱那边奖金早没了、绩效每月还扣，"没有考勤更严了"。</li>
+            <li><strong>带不带电脑之争：</strong>合景的黄朗说他一般回"OK，记得带电脑"，被司言反问"这活只有我这双巧手能干么"；黄宝柱吐槽家里有大事也被要求带着电脑，"直接搞得我想离职"。</li>
+          </ul>
+
+          <div class="quote">
+            <p>"自从公司不发奖金、3 年不提薪，已经没脸问我们了。"</p>
+            <cite>—— 司言</cite>
+          </div>
+
+          <div class="takeaway">
+            三天年假为什么要看人脸色？群友的共识不是"领导坏"，而是"分配权还在他手上"。当奖金、调薪、绩效都不再由某个人决定时，追问"你请假干嘛去"就同时失去了筹码和底气。黄宝柱那句"能拿捏你一下必须拿捏一下"是全场最锋利的注脚——它描述的不是制度，是制度失效之后剩下的东西。
+            <div class="byline">贡献者：六幺、司言、深圳市第二人民医院-陈桂欣、黄宝柱、保利-设计-张丹璐、大椿、青苔</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 行业体感 ============ -->
+      <section class="section fade-up" id="industry">
+        <div class="section-head">
+          <div class="section-num">05</div>
+          <h2 class="section-title">行业体感：从降薪到"目视法"</h2>
+        </div>
+        <div class="section-body">
+          <ul class="list">
+            <li><strong>降薪的下限在哪：</strong>07/17 强通带来"龙湖代建要降薪裁员"，FQW 说"降薪说明还有的降"，黄宝柱接得更狠——"1500 也可以再降 500，1000 还可以再降 300"，直到 FQW 提醒"不能低于最低工资啊"。</li>
+            <li><strong>招商引资的另一面：</strong>07/23 余地说自己天天跟各区投促谈条件、"区领导对产值税收要求太高，我们只能磨"。黄宝柱在另一头揭底：会让企业报八倍产值，"项目刚挖土产值就报完了"，没发票就用"目视法"——看你像多少产值就报多少；奥利奥补一句"形象进度法"。而他们自己不敢虚报，"查出来是要背处分的，严重都开除"。</li>
+            <li><strong>体制内不等于避风港：</strong>邱铁富在政府借调，说想躺平去人大政协、想发展去发改投促工信组织部；"不开除可以边缘，可以针对，可以天天骂你，搞人法子多的很，和企业有啥区别"。</li>
+            <li><strong>仍在流动的人：</strong>贺木木三打听中建香港（黄威龙给的参考：工程师约 36 万港币、不包吃住），Viy 认为香港只在金融和 web3 上值得赌，传统行业"没听说过有很好的发展案例"；陈闽沙劝"一把年纪别去 HK 白手起家了"。</li>
+            <li><strong>还有生意在谈：</strong>07/16 鲁埝坤为手上的商业综合体问 REITs 资源，FQW、lotus、穆分别指向券商与中金前同事，lotus 泼冷水："我们问的项目都说算不过账，成本太高，还不如抵押贷或经营贷。"</li>
+          </ul>
+
+          <div class="quote">
+            <p>"工作 8 年，最大的收获就是工作经验 8 年及以上。"</p>
+            <cite>—— 黄威龙</cite>
+          </div>
+
+          <div class="takeaway">
+            这一届人的行业对话已经不谈规模和排名了，谈的是降薪的下限、统计口径的水分、以及"哪个部门可以躺"。值得注意的是他们仍在做专业判断——REITs 算不算得过账、代建能不能干、香港值不值得去——手艺还在，只是可施展的地方少了。
+            <div class="byline">贡献者：黄宝柱、余地、Hf-战略-邱铁富-合肥、强通、FQW、lotus（何花）、黄威龙、贺木木三</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 互助台 ============ -->
+      <section class="section fade-up" id="mutual">
+        <div class="section-head">
+          <div class="section-num">06</div>
+          <h2 class="section-title">互助台：四场高密度众筹答疑</h2>
+        </div>
+        <div class="section-body">
+          <div class="subsection">
+            <h3 class="subsection-title"><i class="fa-solid fa-shield-heart"></i>百万医疗险怎么配（07/14）</h3>
+            <p>鲁埝坤问"支付宝微信能不能直接买"，被吴慧劝去找保险经纪。落地方案：何晓霞的平安 e 生保一年几百元、另配寿险意外险；吴慧的组合是寿险＋意外＋重疾＋e 生保（合计不到 6000），另用年金账户配固定理财（年缴 1.2 万），两次手术都报下来了。Traum🍭 力荐政府惠民保做补充并给出地域价差——北京 159、四川地级市 79、深圳八九十、佛山 189（全场最贵）；缺点是免赔额高，"只能用于大病"。多位群友提醒：商业险对父母年龄门槛高、保费贵，普惠险才是给爸妈的现实解。</p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title"><i class="fa-solid fa-broom"></i>洗地机与"提灯验砖"（07/20）</h3>
+            <p>王亮求推荐洗地机，徐给出实测：石头 A30 Pro Steam 2.0 用了两个月，"再也没用过拖把"。分歧随即出现——lotus 家瓷砖缝会被扫地机器人拖出脏东西（"可能我家狗子太掉毛"），风用科沃斯"用时挺香，拆洗真难受"，司言木地板派表示满意。黄宝柱拿手机灯照出柔光砖上的隐形污渍，被司言笑称"提灯验砖，各位总标准太高了"。</p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title"><i class="fa-solid fa-person-running"></i>减脂、减肥针与膝盖（07/22、07/27）</h3>
+            <p>刘思扬的科普最硬："腹肌不是练出来的，是瘦出来的"，体脂 20% 练三五年也看不到，方向是少碳水、优质蛋白、力量训练加睡好。07/27 邱铁富坦白打司美的真实体验：反胃恶心胃胀、肌酐下降、"打针后好虚，还不如锻炼"，月巴氵易补充"大部分人停药后半年复胖"。随后话题滑向一场膝盖认领大会——邱铁富、刘思扬、余地、刘、刘春伟接连报到。穆给出最完整的康复清单：超声/中频/冲击波/电击都试过（约 200 元一次），日常保加利亚蹲＋9090 练髋、避免代偿，运动后滚半小时泡沫轴。</p>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title"><i class="fa-solid fa-gift"></i>人情世故小课堂（07/27）</h3>
+            <p>破棉袄大王问"闺蜜生娃要不要转红包"。司言给了可执行的分支：单独分享给你的就得表示；计划去看她，就先微信恭喜、到时现场包；不去看就直接恭喜＋红包；一般关系朋友圈点赞即可。lotus 的做法是买全棉时代礼盒（500 元档）。鲁埝坤顺势自省："这么说我欠了好几个红包没给，当时都想着第一次见小孩再给，现在有的小孩都快能打酱油了。"</p>
+          </div>
+
+          <div class="takeaway">
+            这个群最值钱的部分在这里：问题一抛出来，回答的人会给数字、给型号、给具体医院和具体做法，而且乐于自曝失败经验（打针的副作用、买错的旧版保险、跑废的膝盖）。八年职场训练出的东西，最后都用在了互相省坑上。
+            <div class="byline">贡献者：吴慧、何晓霞、Traum🍭、刘思扬、穆、司言、徐、lotus（何花）、Hf-战略-邱铁富-合肥、黄宝柱</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 城市观察 ============ -->
+      <section class="section fade-up" id="city">
+        <div class="section-head">
+          <div class="section-num">07</div>
+          <h2 class="section-title">城市观察：安检、台风与决赛夜</h2>
+        </div>
+        <div class="section-body">
+          <ul class="list">
+            <li><strong>深圳地铁两天记（07/21–07/22）：</strong>周二早高峰群里同时炸出多张排队照片，夹心小饼干排了八分钟。背景是一起民警牺牲的恶性事件，取消无包快速通道、进站全覆盖安检。陈桂欣带一个蛋糕一个桃子也被要求过机，"那安检员就吼我"；风替一线说话："安检员也难，工作量倍增"；穆的态度是"理解万岁，配合就行"。次日热搜之后执行松动，手提袋不再强制过机——一次完整的"收紧—上热搜—回调"。</li>
+            <li><strong>台风"红霞"（07/25–07/26）：</strong>广东全线铁路 26 日停运，鲁埝坤台风前一天把周末爬山"燃尽了"；凌晨两点报"霞姐来了"，第二天中午黄威龙从深圳发来实况，"停了现在，有雨"。</li>
+            <li><strong>世界杯决赛夜（07/20 凌晨）：</strong>群里从凌晨三点热闹到清晨六点。行者无疆Walker 在马德里街头直播氛围，永越用 300 元本金防了个 0:0 净赚一千一，西班牙 1:0 夺冠后一句"今夜属于西班牙人"。决赛前一晚，穆用一长串消息给全群讲清了南美足球为何走下坡、意大利为何废掉——"一个球队需要领袖"。</li>
+            <li><strong>一个人的骑行（贯穿两周）：</strong>破棉袄大王一路从惠州骑到汕尾、汕头、南澳，每天扎胎、每天淋雨，"百公里油耗一个红糖馒头"；顺手考据出汕尾不属潮汕而自成海陆丰，还发现向华强是汕尾人。</li>
+          </ul>
+
+          <div class="takeaway">
+            这些片段拼起来是这群人真实的生活半径：早高峰的安检口、台风天的窗户、凌晨三点的直播和一辆一直在扎胎的自行车。群聊在这里的作用不是传播信息，而是让"我今天遇到的事"有人接住。
+            <div class="byline">贡献者：深圳市第二人民医院-陈桂欣、风、夹心小饼干、破棉袄大王、行者无疆Walker、穆、佛山 南海 投资 鲁埝坤</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 美食地图 ============ -->
+      <section class="section fade-up" id="food">
+        <div class="section-head">
+          <div class="section-num">08</div>
+          <h2 class="section-title">众筹美食地图</h2>
+        </div>
+        <div class="section-body">
+          <div class="lead-box">
+            <strong>结论先行：</strong>
+            07/24 下午由一句"北京到底是不是美食荒漠"点燃，最后沉淀成一份跨城清单。最有分量的建议来自群里的广州食评作者兰德里，以及在北京、杭州、广州、中山都待过的穆。
+          </div>
+
+          <ul class="list">
+            <li><strong>广州</strong>（兰德里）：心目中御三家——广御轩、玉堂春暖、御宝轩；另荐宜安广场利苑、中达炳胜私厨。质价比：花城苑／雅苑／腰记。要烟火气就去盘福路新文记、文明路达杨炖品、海珠啫八。吃玉堂春暖的正确姿势是"茶点＋一份叉烧"。</li>
+            <li><strong>北京</strong>（徐、FQW）：共识是"最好吃的在各省驻京办"——新疆驻京办汗腾格里的炒米粉和串串、新疆巴州金丝特；涮肉推鸦儿李记，西餐有 Peter Pan、莫斯科餐厅；兰德里补一家性价比米其林"拾久"。</li>
+            <li><strong>潮汕</strong>（穆 → 破棉袄大王）：东市凯兴白粥配生腌熟腌、日日香卤鹅、松英汫洲蚝仔粥、十二中草莓冰，外加一句提醒——汕头很多店四点关门。</li>
+            <li><strong>分歧存档：</strong>鲁埝坤坚称"北上广深第一是全、第二厨子顶配、第三食客嘴刁，能开十几年的都有点东西"；强通反手一句"北京就是美食荒漠，稍微出名点的都有麻酱"；青苔吐槽杭帮菜"放糖的甜"；王跃则给出"北京牛羊太多，除非你能接受牛羊当主要肉类"。</li>
+          </ul>
+
+          <div class="quote">
+            <p>"每个人出生时候的味蕾数量都是接近的……很多会在成年时丢失掉，只剩三分之一。每个人丢失的都不一样，和所在地的饮食习惯有关。为什么有的人小时候不爱吃的长大能吃了，就是丢失了那部分，吃起来就不觉得难吃了。"</p>
+            <cite>—— 中山板芙 王跃，本期最好的一段闲聊</cite>
+          </div>
+
+          <div class="takeaway">
+            吃是这个群的通用语言：地域争论最激烈、参与人数最广、也最没有火气。鲁埝坤那句"人过了三十，也不爱喝了也不抽了，就想着吃点、看看风景"，大概是这份地图真正的注脚。
+            <div class="byline">贡献者：兰德里（广州 设计 殷永）、徐、穆、佛山 南海 投资 鲁埝坤、中山板芙 王跃、强通、青苔、FQW</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 金句 ============ -->
+      <section class="section fade-up" id="quotes">
+        <div class="section-head">
+          <div class="section-num">09</div>
+          <h2 class="section-title">本期金句</h2>
+        </div>
+        <div class="section-body">
+          <div class="quote">
+            <p>"能拿捏你一下必须拿捏一下——不管什么事情，不分大小。"</p>
+            <cite>—— 黄宝柱，谈那些卡假条的人</cite>
+          </div>
+          <div class="quote">
+            <p>"死气沉沉的生活确实需要一只小狗。"</p>
+            <cite>—— 深圳市第二人民医院-陈桂欣，07/20 那场柯基茶话会</cite>
+          </div>
+          <div class="quote">
+            <p>"人终究会被年少不得之物困扰一生，长大后再尝，就感觉变了。"</p>
+            <cite>—— 中山板芙 王跃，因为一盒高乐高</cite>
+          </div>
+          <div class="quote">
+            <p>"百公里油耗一个红糖馒头。"</p>
+            <cite>—— 破棉袄大王，关于他的自行车</cite>
+          </div>
+          <div class="quote">
+            <p>"问你亏了赚了，你说我悟了。"</p>
+            <cite>—— 奥利奥咯吱咯吱脆，献给这个月的股市</cite>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 还有这些小事 ============ -->
+      <section class="section fade-up" id="bits">
+        <div class="section-head">
+          <div class="section-num">10</div>
+          <h2 class="section-title">还有这些小事</h2>
+        </div>
+        <div class="section-body">
+          <ul class="list">
+            <li><strong>柯基茶话会（07/20）：</strong>一场从洗地机滑向养狗的转场。三只柯基、一只叫馒头的狗宝、一只白比熊小白，聊到断尾伦理——"尾巴存在肯定有用"。</li>
+            <li><strong>生育潮（07/23）：</strong>徐说部门一下子仨姐姐休产假，lotus 办公室两个；由此引出属羊迷信之争，被徐一句"羊年高考那年清华就不招生了吗"终结。</li>
+            <li><strong>"传下去"（07/21）：</strong>因为穆的一句"多用支付宝，我的工资能不能准时发靠各位群友了"，全群开始接龙"传下去，峰总离职那天给群友每人发 100 红包"，数字一路加到十万。</li>
+            <li><strong>优衣库购物金过期（07/20）：</strong>鲁埝坤的储值卡两年没用被清零，引出一串消费者权益讨论——王跃的追问最实在："如果过期清零，企业那边财务是怎么平账的呢？"他自己申请退回了十几年前的大学饭卡余额。</li>
+            <li><strong>手搓面包（07/23）：</strong>司言用水合法做出吐司和贝果，"和好面丢冰箱一晚上，第二天加酵母黄油整形发酵"，被全群夸到"别夸了我要膨胀了"。</li>
+            <li><strong>一句成谶（07/27 傍晚）：</strong>穆随口一句"想吃群里的瓜"，五分钟后瓜真的落在了群里。全群判他"全责"，并纷纷请他改口许愿："希望大家今年股票回本。"</li>
+          </ul>
+
+          <div class="takeaway">
+            这些碎片不产生任何结论，但它们才是这个群能活八年的原因。
+            <div class="byline">贡献者：全体群友</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 编辑手记 ============ -->
+      <section class="section editor-note fade-up" id="editor">
+        <div class="section-head">
+          <div class="section-num">11</div>
+          <h2 class="section-title">编辑手记</h2>
+        </div>
+        <div class="section-body">
+          <p>
+            整理这两周三千多条消息，最强烈的感受是：这个以"校招生"命名的群，成员早已不在同一条跑道上。有人还在房企算成本，有人转去政府投促、医院基建、学校后勤，有人在待业和"准失业"之间挂着签名，也有人在杭州的大厂里算探亲机票的报销额度。
+          </p>
+          <p style="margin-top:16px;">
+            但群聊仍然成立——因为议题变了：不再是项目和晋升，而是年假怎么请、险怎么配、膝盖怎么修、红包该什么时候给。八年前是同一批新人，八年后是同一批中年人。这可能就是这类同届群最终的价值：当职业身份不再共享，生活经验成了新的公共财产。
+          </p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p class="footer-title">地产#校招生#实名交流群 · 双周报</p>
+        <p>统计区间 2026-07-14 至 2026-07-27 · 共 3,463 条消息 · 105 位发言者</p>
+        <p>本报告内容全部来自群聊公开发言，仅作社群记录之用</p>
+      </footer>
+
     </div>
-  </header>
-  <div class="hd-rule"></div>
-
-  <main class="px-4 py-6 md:px-8 md:py-8">
-
-    <!-- ============ 精华亮点荟萃 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-3">
-        <i class="fa-solid fa-star" style="color:#f0a500;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">本期精华 · 六个高光切面</h2>
-      </div>
-      <p class="text-sm text-gray-600 mb-5">
-        这是一群 2018 年前后进地产的同届人。八年过去，他们散在房企、代建、国企、政府投促、医院基建、高校后勤、互联网大厂和待业名单里。这两周群里没有宏大叙事，只有三千多条日常：有人中签长鑫一夜赚两万，有人为三天年假被领导追问到憋屈，有人在暴雨里骑车环粤，有人在讨论膝盖为什么三十岁就坏了。以下六件事，是这段时间群聊真正的重量所在。
-      </p>
-      <ul class="space-y-3">
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">长鑫科技打新闭环</span> —— 从 07/17 中签短信到 07/27 上市开盘，一签两万、五签十万，群里现场兑现</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">"你们有请假羞耻吗"</span> —— 一句提问炸出全群，牵出育儿假、年终奖、离职理由和权力的分寸</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">行业下行的体感切片</span> —— 龙湖代建降薪、"目视法"报产值、碧桂园卖飞长鑫痛失 470 亿</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">互助台开张</span> —— 百万医疗险、洗地机、香港求职、膝盖康复，四场高信息密度的众筹答疑</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">深圳地铁安检全覆盖</span> —— 一桩恶性案件之后，一座城市的通勤在两天内收紧又松动</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">全国美食版图共建</span> —— 从驻京办到潮汕生腌到广州御三家，一份群友众筹的味觉地图</span></li>
-      </ul>
-    </section>
-
-    <!-- ============ 消息热力 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-4">
-        <i class="fa-solid fa-chart-simple" style="color:#2b6cb0;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">群聊节律</h2>
-      </div>
-
-      <div class="space-y-2 text-xs md:text-sm">
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/14 二</span><span class="bar mr-2" style="width:56%"></span><span class="text-gray-600">434</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/15 三</span><span class="bar mr-2" style="width:16%"></span><span class="text-gray-600">125</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/16 四</span><span class="bar mr-2" style="width:16%"></span><span class="text-gray-600">121</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/17 五</span><span class="bar mr-2" style="width:30%"></span><span class="text-gray-600">230</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/19 日</span><span class="bar mr-2" style="width:15%"></span><span class="text-gray-600">115</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/20 一</span><span class="bar mr-2" style="width:35%"></span><span class="text-gray-600">273</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/21 二</span><span class="bar mr-2" style="width:57%"></span><span class="text-gray-600">439</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/22 三</span><span class="bar mr-2" style="width:17%"></span><span class="text-gray-600">131</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/23 四</span><span class="bar mr-2" style="width:45%"></span><span class="text-gray-600">347</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/24 五</span><span class="bar mr-2" style="width:50%"></span><span class="text-gray-600">386</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/25 六</span><span class="bar mr-2" style="width:4%"></span><span class="text-gray-600">25</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/26 日</span><span class="bar mr-2" style="width:9%"></span><span class="text-gray-600">67</span></div>
-        <div class="flex items-center"><span class="w-16 flex-none text-gray-500">07/27 一</span><span class="bar mr-2" style="width:100%;background:linear-gradient(90deg,#f0a500,#f5c451);"></span><span class="font-semibold" style="color:#b47600;">770</span></div>
-      </div>
-
-      <div class="sum mt-5 px-4 py-3 rounded-r-lg text-sm text-gray-700">
-        工作日白天是主战场，周末几乎静音——07/25 全天只有 25 条。<span class="font-semibold">07/27 周一 770 条</span>创下双周峰值：上午长鑫上市集体开奖，下午一路聊到相亲经济学、膝盖康复和一个"许愿成真"的戏剧性收尾。
-      </div>
-      <div class="byline mt-3">
-        最活跃十位：佛山 南海 投资 鲁埝坤（496）· 穆（388）· Hf-战略-邱铁富-合肥（238）· 深圳市第二人民医院-陈桂欣（180）· 黄宝柱（180）· 徐（152）· 破棉袄大王（103）· 风（101）· 司言（81）· 六幺（77）
-      </div>
-    </section>
-
-    <!-- ============ 长鑫打新 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-4">
-        <i class="fa-solid fa-microchip" style="color:#2b6cb0;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">长鑫科技：一场十天的集体开奖</h2>
-      </div>
-
-      <div class="lead px-4 py-4 mb-5 text-sm">
-        <span class="font-semibold" style="color:#f0a500;">结论先行：</span>
-        群里两位中签者在 07/27 开盘一小时内落袋——L.Y 一签 500 股赚约 2 万、"今年刚好回本"；邱铁富中五签、约 10 万到手。而真正被反复讨论的，是那些拿股权的长鑫员工：三年解禁、离职十年解禁，纸面财富未必兑现。
-      </div>
-
-      <ul class="space-y-3 text-sm text-gray-700">
-        <li class="flex"><span class="dot mr-3"></span><span><span class="tag px-2 py-0.5 rounded text-xs font-semibold mr-1">07/14</span>FQW 甩出发行价 8.66 元，问"老板们，打新么"，回声是一片"没资格"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="tag px-2 py-0.5 rounded text-xs font-semibold mr-1">07/17</span>L.Y 收到东财中签短信、缴款 4330 元，一句"今天唯一的安慰"——那天正是 A 股半导体普跌的一天。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="tag px-2 py-0.5 rounded text-xs font-semibold mr-1">07/27</span>开盘冲到 3.3 万亿盘子，L.Y 五倍卖出，"帮我今年回本了"；邱铁富晒出五签。杨雅雯、煜良在旁边算账。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">冷静派：</span>大椿判断"长鑫最多值 5000 亿，三年五年之后这轮硬件叙事都结束了"；黄宝柱补充持股平台规则——卖出需公司同意，一年两次机会。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">合肥切面：</span>邱铁富说长鑫员工现在是本地相亲市场的天花板，"王婆相亲台上一报单位，下面喔喔一片"；但研发加班到只能做周末夫妻，聊微信都要避保密。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">行业回响：</span>余地转来"碧桂园卖飞长鑫科技，痛失 470 亿"——同一支股票，在这个群里同时意味着运气、纪律和一个时代的错身。</span></li>
-      </ul>
-
-      <div class="sum mt-5 px-4 py-3 rounded-r-lg text-sm text-gray-700">
-        新股是这两周唯一让全群同时兴奋的东西，但它照出的其实是落差：能中签的靠运气，能拿股权的要熬三年，而更多人只是围观并调侃"没资格"。群里最清醒的两句都不来自赢家——"三年五年之后这轮叙事就结束了"，和"离职员工十年解禁"。
-        <div class="byline mt-2">贡献者：L.Y、Hf-战略-邱铁富-合肥、黄宝柱、大椿、FQW、余地</div>
-      </div>
-    </section>
-
-    <!-- ============ 请假羞耻 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-4">
-        <i class="fa-regular fa-calendar-xmark" style="color:#2b6cb0;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">"各位都有请假羞耻吗"</h2>
-      </div>
-
-      <p class="text-sm text-gray-700 mb-4">
-        07/14 下午四点，六幺发问：一年难请一次假，请了三天，领导回一句"这么久啊"，该怎么回。这条消息把当天下午整条聊天线索都拽了过去，是本期参与人数最多、也最有共鸣的一场讨论。
-      </p>
-
-      <div class="qt px-4 py-3 mb-4 rounded-r-lg">
-        <p class="text-sm md:text-base" style="color:#553c00;">"群里大小差不多 500 人，我想问问各位当了领导的，出于什么原因要问你请假干嘛去。"</p>
-        <p class="text-xs mt-2 text-gray-500">—— 六幺</p>
-      </div>
-
-      <ul class="space-y-3 text-sm text-gray-700">
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">假期的账本：</span>司言今年已请 13.5 天（年假＋十天育儿假），"说都不说直接提 OA"；陈桂欣年假只剩 1 天，担心中秋国庆批不下来；黄宝柱七天年假一天没休，"要是能折成钱就好了"。大椿科普独生子女护理假 5–15 天，"五天是无条件的"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">一次真实的离职原因：</span>保利-设计-张丹璐说，自己离开保利的导火索之一，是 OA 上明明能选的育儿假，领导装作没看到、拖了几天最后没批，"系统上都能选得出来，还要装作不知道"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">交换条件失效之后：</span>司言一针见血——"请假难的朋友，是不是都还有绩效或者奖金领导可以分配"；黄宝柱那边奖金早没了、绩效每月还扣，"没有考勤更严了"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">带不带电脑之争：</span>合景的黄朗说他一般回"OK，记得带电脑"，被司言反问"这活只有我这双巧手能干么"；黄宝柱吐槽家里有大事也被要求带着电脑，"直接搞得我想离职"。</span></li>
-      </ul>
-
-      <div class="qt px-4 py-3 mt-4 rounded-r-lg">
-        <p class="text-sm md:text-base" style="color:#553c00;">"自从公司不发奖金、3 年不提薪，已经没脸问我们了。"</p>
-        <p class="text-xs mt-2 text-gray-500">—— 司言</p>
-      </div>
-
-      <div class="sum mt-5 px-4 py-3 rounded-r-lg text-sm text-gray-700">
-        三天年假为什么要看人脸色？群友的共识不是"领导坏"，而是"分配权还在他手上"。当奖金、调薪、绩效都不再由某个人决定时，追问"你请假干嘛去"就同时失去了筹码和底气。黄宝柱那句"能拿捏你一下必须拿捏一下"是全场最锋利的注脚——它描述的不是制度，是制度失效之后剩下的东西。
-        <div class="byline mt-2">贡献者：六幺、司言、深圳市第二人民医院-陈桂欣、黄宝柱、保利-设计-张丹璐、大椿、青苔</div>
-      </div>
-    </section>
-
-    <!-- ============ 行业体感 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-4">
-        <i class="fa-solid fa-helmet-safety" style="color:#2b6cb0;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">行业体感：从降薪到"目视法"</h2>
-      </div>
-
-      <ul class="space-y-3 text-sm text-gray-700">
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">降薪的下限在哪：</span>07/17 强通带来"龙湖代建要降薪裁员"，FQW 说"降薪说明还有的降"，黄宝柱接得更狠——"1500 也可以再降 500，1000 还可以再降 300"，直到 FQW 提醒"不能低于最低工资啊"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">招商引资的另一面：</span>07/23 余地说自己天天跟各区投促谈条件、"区领导对产值税收要求太高，我们只能磨"。黄宝柱在另一头揭底：会让企业报八倍产值，"项目刚挖土产值就报完了"，没发票就用"目视法"——看你像多少产值就报多少；奥利奥补一句"形象进度法"。而他们自己不敢虚报，"查出来是要背处分的，严重都开除"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">体制内不等于避风港：</span>邱铁富在政府借调，说想躺平去人大政协、想发展去发改投促工信组织部；"不开除可以边缘，可以针对，可以天天骂你，搞人法子多的很，和企业有啥区别"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">仍在流动的人：</span>贺木木三打听中建香港（黄威龙给的参考：工程师约 36 万港币、不包吃住），Viy 认为香港只在金融和 web3 上值得赌，传统行业"没听说过有很好的发展案例"；陈闽沙劝"一把年纪别去 HK 白手起家了"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">还有生意在谈：</span>07/16 鲁埝坤为手上的商业综合体问 REITs 资源，FQW、lotus、穆分别指向券商与中金前同事，lotus 泼冷水："我们问的项目都说算不过账，成本太高，还不如抵押贷或经营贷。"</span></li>
-      </ul>
-
-      <div class="qt px-4 py-3 mt-4 rounded-r-lg">
-        <p class="text-sm md:text-base" style="color:#553c00;">"工作 8 年，最大的收获就是工作经验 8 年及以上。"</p>
-        <p class="text-xs mt-2 text-gray-500">—— 黄威龙</p>
-      </div>
-
-      <div class="sum mt-5 px-4 py-3 rounded-r-lg text-sm text-gray-700">
-        这一届人的行业对话已经不谈规模和排名了，谈的是降薪的下限、统计口径的水分、以及"哪个部门可以躺"。值得注意的是他们仍在做专业判断——REITs 算不算得过账、代建能不能干、香港值不值得去——手艺还在，只是可施展的地方少了。
-        <div class="byline mt-2">贡献者：黄宝柱、余地、Hf-战略-邱铁富-合肥、强通、FQW、lotus（何花）、黄威龙、贺木木三</div>
-      </div>
-    </section>
-
-    <!-- ============ 互助台 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-4">
-        <i class="fa-solid fa-hand-holding-heart" style="color:#2b6cb0;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">互助台：四场高密度众筹答疑</h2>
-      </div>
-
-      <div class="mb-5">
-        <h3 class="font-semibold mb-2" style="color:#1b3f63;"><i class="fa-solid fa-shield-heart mr-2" style="color:#f0a500;"></i>百万医疗险怎么配（07/14）</h3>
-        <p class="text-sm text-gray-700">鲁埝坤问"支付宝微信能不能直接买"，被吴慧劝去找保险经纪。落地方案：何晓霞的平安 e 生保一年几百元、另配寿险意外险；吴慧的组合是寿险＋意外＋重疾＋e 生保（合计不到 6000），另用年金账户配固定理财（年缴 1.2 万），两次手术都报下来了。Traum🍭 力荐政府惠民保做补充并给出地域价差——北京 159、四川地级市 79、深圳八九十、佛山 189（全场最贵）；缺点是免赔额高，"只能用于大病"。多位群友提醒：商业险对父母年龄门槛高、保费贵，普惠险才是给爸妈的现实解。</p>
-      </div>
-
-      <div class="mb-5">
-        <h3 class="font-semibold mb-2" style="color:#1b3f63;"><i class="fa-solid fa-broom mr-2" style="color:#f0a500;"></i>洗地机与"提灯验砖"（07/20）</h3>
-        <p class="text-sm text-gray-700">王亮求推荐洗地机，徐给出实测：石头 A30 Pro Steam 2.0 用了两个月，"再也没用过拖把"。分歧随即出现——lotus 家瓷砖缝会被扫地机器人拖出脏东西（"可能我家狗子太掉毛"），风用科沃斯"用时挺香，拆洗真难受"，司言木地板派表示满意。黄宝柱拿手机灯照出柔光砖上的隐形污渍，被司言笑称"提灯验砖，各位总标准太高了"。</p>
-      </div>
-
-      <div class="mb-5">
-        <h3 class="font-semibold mb-2" style="color:#1b3f63;"><i class="fa-solid fa-person-running mr-2" style="color:#f0a500;"></i>减脂、减肥针与膝盖（07/22、07/27）</h3>
-        <p class="text-sm text-gray-700">刘思扬的科普最硬："腹肌不是练出来的，是瘦出来的"，体脂 20% 练三五年也看不到，方向是少碳水、优质蛋白、力量训练加睡好。07/27 邱铁富坦白打司美的真实体验：反胃恶心胃胀、肌酐下降、"打针后好虚，还不如锻炼"，月巴氵易补充"大部分人停药后半年复胖"。随后话题滑向一场膝盖认领大会——邱铁富、刘思扬、余地、刘、刘春伟接连报到。穆给出最完整的康复清单：超声/中频/冲击波/电击都试过（约 200 元一次），日常保加利亚蹲＋9090 练髋、避免代偿，运动后滚半小时泡沫轴。</p>
-      </div>
-
-      <div>
-        <h3 class="font-semibold mb-2" style="color:#1b3f63;"><i class="fa-solid fa-gift mr-2" style="color:#f0a500;"></i>人情世故小课堂（07/27）</h3>
-        <p class="text-sm text-gray-700">破棉袄大王问"闺蜜生娃要不要转红包"。司言给了可执行的分支：单独分享给你的就得表示；计划去看她，就先微信恭喜、到时现场包；不去看就直接恭喜＋红包；一般关系朋友圈点赞即可。lotus 的做法是买全棉时代礼盒（500 元档）。鲁埝坤顺势自省："这么说我欠了好几个红包没给，当时都想着第一次见小孩再给，现在有的小孩都快能打酱油了。"</p>
-      </div>
-
-      <div class="sum mt-5 px-4 py-3 rounded-r-lg text-sm text-gray-700">
-        这个群最值钱的部分在这里：问题一抛出来，回答的人会给数字、给型号、给具体医院和具体做法，而且乐于自曝失败经验（打针的副作用、买错的旧版保险、跑废的膝盖）。八年职场训练出的东西，最后都用在了互相省坑上。
-        <div class="byline mt-2">贡献者：吴慧、何晓霞、Traum🍭、刘思扬、穆、司言、徐、lotus（何花）、Hf-战略-邱铁富-合肥、黄宝柱</div>
-      </div>
-    </section>
-
-    <!-- ============ 城市观察 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-4">
-        <i class="fa-solid fa-train-subway" style="color:#2b6cb0;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">城市观察：安检、台风与决赛夜</h2>
-      </div>
-
-      <ul class="space-y-3 text-sm text-gray-700">
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">深圳地铁两天记（07/21–07/22）：</span>周二早高峰群里同时炸出多张排队照片，夹心小饼干排了八分钟。背景是一起民警牺牲的恶性事件，取消无包快速通道、进站全覆盖安检。陈桂欣带一个蛋糕一个桃子也被要求过机，"那安检员就吼我"；风替一线说话："安检员也难，工作量倍增"；穆的态度是"理解万岁，配合就行"。次日热搜之后执行松动，手提袋不再强制过机——一次完整的"收紧—上热搜—回调"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">台风"红霞"（07/25–07/26）：</span>广东全线铁路 26 日停运，鲁埝坤台风前一天把周末爬山"燃尽了"；凌晨两点报"霞姐来了"，第二天中午黄威龙从深圳发来实况，"停了现在，有雨"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">世界杯决赛夜（07/20 凌晨）：</span>群里从凌晨三点热闹到清晨六点。行者无疆Walker 在马德里街头直播氛围，永越用 300 元本金防了个 0:0 净赚一千一，西班牙 1:0 夺冠后一句"今夜属于西班牙人"。决赛前一晚，穆用一长串消息给全群讲清了南美足球为何走下坡、意大利为何废掉——"一个球队需要领袖"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">一个人的骑行（贯穿两周）：</span>破棉袄大王一路从惠州骑到汕尾、汕头、南澳，每天扎胎、每天淋雨，"百公里油耗一个红糖馒头"；顺手考据出汕尾不属潮汕而自成海陆丰，还发现向华强是汕尾人。</span></li>
-      </ul>
-
-      <div class="sum mt-5 px-4 py-3 rounded-r-lg text-sm text-gray-700">
-        这些片段拼起来是这群人真实的生活半径：早高峰的安检口、台风天的窗户、凌晨三点的直播和一辆一直在扎胎的自行车。群聊在这里的作用不是传播信息，而是让"我今天遇到的事"有人接住。
-        <div class="byline mt-2">贡献者：深圳市第二人民医院-陈桂欣、风、夹心小饼干、破棉袄大王、行者无疆Walker、穆、佛山 南海 投资 鲁埝坤</div>
-      </div>
-    </section>
-
-    <!-- ============ 美食地图 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-4">
-        <i class="fa-solid fa-utensils" style="color:#2b6cb0;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">众筹美食地图</h2>
-      </div>
-
-      <div class="lead px-4 py-4 mb-5 text-sm">
-        <span class="font-semibold" style="color:#f0a500;">结论先行：</span>
-        07/24 下午由一句"北京到底是不是美食荒漠"点燃，最后沉淀成一份跨城清单。最有分量的建议来自群里的广州食评作者兰德里，以及在北京、杭州、广州、中山都待过的穆。
-      </div>
-
-      <ul class="space-y-3 text-sm text-gray-700">
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">广州</span>（兰德里）：心目中御三家——广御轩、玉堂春暖、御宝轩；另荐宜安广场利苑、中达炳胜私厨。质价比：花城苑／雅苑／腰记。要烟火气就去盘福路新文记、文明路达杨炖品、海珠啫八。吃玉堂春暖的正确姿势是"茶点＋一份叉烧"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">北京</span>（徐、FQW）：共识是"最好吃的在各省驻京办"——新疆驻京办汗腾格里的炒米粉和串串、新疆巴州金丝特；涮肉推鸦儿李记，西餐有 Peter Pan、莫斯科餐厅；兰德里补一家性价比米其林"拾久"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">潮汕</span>（穆 → 破棉袄大王）：东市凯兴白粥配生腌熟腌、日日香卤鹅、松英汫洲蚝仔粥、十二中草莓冰，外加一句提醒——汕头很多店四点关门。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">分歧存档：</span>鲁埝坤坚称"北上广深第一是全、第二厨子顶配、第三食客嘴刁，能开十几年的都有点东西"；强通反手一句"北京就是美食荒漠，稍微出名点的都有麻酱"；青苔吐槽杭帮菜"放糖的甜"；王跃则给出"北京牛羊太多，除非你能接受牛羊当主要肉类"。</span></li>
-      </ul>
-
-      <div class="qt px-4 py-3 mt-4 rounded-r-lg">
-        <p class="text-sm md:text-base" style="color:#553c00;">"每个人出生时候的味蕾数量都是接近的……很多会在成年时丢失掉，只剩三分之一。每个人丢失的都不一样，和所在地的饮食习惯有关。为什么有的人小时候不爱吃的长大能吃了，就是丢失了那部分，吃起来就不觉得难吃了。"</p>
-        <p class="text-xs mt-2 text-gray-500">—— 中山板芙 王跃，本期最好的一段闲聊</p>
-      </div>
-
-      <div class="sum mt-5 px-4 py-3 rounded-r-lg text-sm text-gray-700">
-        吃是这个群的通用语言：地域争论最激烈、参与人数最广、也最没有火气。鲁埝坤那句"人过了三十，也不爱喝了也不抽了，就想着吃点、看看风景"，大概是这份地图真正的注脚。
-        <div class="byline mt-2">贡献者：兰德里（广州 设计 殷永）、徐、穆、佛山 南海 投资 鲁埝坤、中山板芙 王跃、强通、青苔、FQW</div>
-      </div>
-    </section>
-
-    <!-- ============ 金句 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-4">
-        <i class="fa-solid fa-quote-left" style="color:#f0a500;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">本期金句</h2>
-      </div>
-
-      <div class="space-y-4">
-        <div class="qt px-4 py-3 rounded-r-lg">
-          <p class="text-sm md:text-base" style="color:#553c00;">"能拿捏你一下必须拿捏一下——不管什么事情，不分大小。"</p>
-          <p class="text-xs mt-2 text-gray-500">—— 黄宝柱，谈那些卡假条的人</p>
-        </div>
-        <div class="qt px-4 py-3 rounded-r-lg">
-          <p class="text-sm md:text-base" style="color:#553c00;">"死气沉沉的生活确实需要一只小狗。"</p>
-          <p class="text-xs mt-2 text-gray-500">—— 深圳市第二人民医院-陈桂欣，07/20 那场柯基茶话会</p>
-        </div>
-        <div class="qt px-4 py-3 rounded-r-lg">
-          <p class="text-sm md:text-base" style="color:#553c00;">"人终究会被年少不得之物困扰一生，长大后再尝，就感觉变了。"</p>
-          <p class="text-xs mt-2 text-gray-500">—— 中山板芙 王跃，因为一盒高乐高</p>
-        </div>
-        <div class="qt px-4 py-3 rounded-r-lg">
-          <p class="text-sm md:text-base" style="color:#553c00;">"百公里油耗一个红糖馒头。"</p>
-          <p class="text-xs mt-2 text-gray-500">—— 破棉袄大王，关于他的自行车</p>
-        </div>
-        <div class="qt px-4 py-3 rounded-r-lg">
-          <p class="text-sm md:text-base" style="color:#553c00;">"问你亏了赚了，你说我悟了。"</p>
-          <p class="text-xs mt-2 text-gray-500">—— 奥利奥咯吱咯吱脆，献给这个月的股市</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 群相册 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6">
-      <div class="flex items-center mb-4">
-        <i class="fa-solid fa-mug-hot" style="color:#2b6cb0;"></i>
-        <h2 class="ml-2 text-lg md:text-xl font-bold" style="color:#0f2740;">还有这些小事</h2>
-      </div>
-      <ul class="space-y-3 text-sm text-gray-700">
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">柯基茶话会（07/20）：</span>一场从洗地机滑向养狗的转场。三只柯基、一只叫馒头的狗宝、一只白比熊小白，聊到断尾伦理——"尾巴存在肯定有用"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">生育潮（07/23）：</span>徐说部门一下子仨姐姐休产假，lotus 办公室两个；由此引出属羊迷信之争，被徐一句"羊年高考那年清华就不招生了吗"终结。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">"传下去"（07/21）：</span>因为穆的一句"多用支付宝，我的工资能不能准时发靠各位群友了"，全群开始接龙"传下去，峰总离职那天给群友每人发 100 红包"，数字一路加到十万。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">优衣库购物金过期（07/20）：</span>鲁埝坤的储值卡两年没用被清零，引出一串消费者权益讨论——王跃的追问最实在："如果过期清零，企业那边财务是怎么平账的呢？"他自己申请退回了十几年前的大学饭卡余额。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">手搓面包（07/23）：</span>司言用水合法做出吐司和贝果，"和好面丢冰箱一晚上，第二天加酵母黄油整形发酵"，被全群夸到"别夸了我要膨胀了"。</span></li>
-        <li class="flex"><span class="dot mr-3"></span><span><span class="font-semibold" style="color:#1b3f63;">一句成谶（07/27 傍晚）：</span>穆随口一句"想吃群里的瓜"，五分钟后瓜真的落在了群里。全群判他"全责"，并纷纷请他改口许愿："希望大家今年股票回本。"</span></li>
-      </ul>
-      <div class="sum mt-5 px-4 py-3 rounded-r-lg text-sm text-gray-700">
-        这些碎片不产生任何结论，但它们才是这个群能活八年的原因。
-        <div class="byline mt-2">贡献者：全体群友</div>
-      </div>
-    </section>
-
-    <!-- ============ 结语 ============ -->
-    <section class="card px-5 py-6 md:px-8 md:py-7 mb-6" style="border-top:4px solid #f0a500;">
-      <h2 class="text-lg md:text-xl font-bold mb-3" style="color:#0f2740;">编辑手记</h2>
-      <p class="text-sm text-gray-700">
-        整理这两周三千多条消息，最强烈的感受是：这个以"校招生"命名的群，成员早已不在同一条跑道上。有人还在房企算成本，有人转去政府投促、医院基建、学校后勤，有人在待业和"准失业"之间挂着签名，也有人在杭州的大厂里算探亲机票的报销额度。
-      </p>
-      <p class="text-sm text-gray-700 mt-3">
-        但群聊仍然成立——因为议题变了：不再是项目和晋升，而是年假怎么请、险怎么配、膝盖怎么修、红包该什么时候给。八年前是同一批新人，八年后是同一批中年人。这可能就是这类同届群最终的价值：当职业身份不再共享，生活经验成了新的公共财产。
-      </p>
-    </section>
-
-    <footer class="text-center py-6">
-      <p class="text-xs text-gray-500">地产#校招生#实名交流群 · 双周报</p>
-      <p class="text-xs text-gray-400 mt-1">统计区间 2026-07-14 至 2026-07-27 · 共 3,463 条消息 · 105 位发言者</p>
-      <p class="text-xs text-gray-400 mt-3">本报告内容全部来自群聊公开发言，仅作社群记录之用</p>
-    </footer>
-
   </main>
 </div>
+
+<script>
+// Scroll animations
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.08
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// TOC active state
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = document.querySelectorAll('section[id]');
+
+function setActiveToc() {
+  let current = '';
+  const scrollY = window.scrollY + 120;
+
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    if (scrollY >= top) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  tocLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', setActiveToc, { passive: true });
+setActiveToc();
+
+// Animate chart bars on load
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.chart .bar').forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        bar.style.width = width;
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
