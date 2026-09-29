@@ -7,98 +7,77 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root { --paper: #f7f5f0; --ink: #232420; --muted: #5c6259; --rule: #c9c9be; --accent: #a6382a; }
+    :root { --paper: #f7f5f0; --ink: #232420; --muted: #62675e; --rule: #c9c9be; --accent: #a6382a; --soft: #eaece5; }
     * { box-sizing: border-box; }
     html { background: #eae9e3; }
     body { margin: 0; color: var(--ink); font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; }
     .page { background: var(--paper); min-height: 100vh; box-shadow: 0 18px 56px rgba(31, 37, 30, .09); }
     .wrap { padding-left: 40px; padding-right: 40px; }
-    .masthead { border-top: 9px solid var(--accent); padding-top: 24px; }
-    .masthead-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding-bottom: 17px; border-bottom: 1px solid var(--ink); }
-    .brand { max-width: 490px; margin: 0; font-size: 25px; line-height: 1.28; font-weight: 800; letter-spacing: -.045em; }
-    .issue { flex: none; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .09em; text-align: right; line-height: 1.5; }
-    .hero { padding-top: 43px; padding-bottom: 38px; border-bottom: 1px solid var(--ink); }
-    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(145px, .65fr); gap: 24px; align-items: end; }
-    .kicker { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .1em; }
-    .display { margin: 18px 0 18px; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: clamp(42px, 8vw, 66px); line-height: 1.09; font-weight: 700; letter-spacing: -.045em; }
-    .dek { margin: 0; max-width: 480px; color: #42483f; font-size: 15px; line-height: 1.8; }
-    .hero-figure { border-left: 1px solid var(--rule); padding-left: 20px; color: var(--accent); }
-    .hero-figure strong { display: block; font-family: Georgia, "Times New Roman", serif; font-size: clamp(100px, 18vw, 160px); font-weight: 400; line-height: .77; letter-spacing: -.1em; }
-    .hero-figure span { display: block; margin-top: 17px; color: var(--ink); font-size: 12px; line-height: 1.5; }
-    .meta-line { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 27px; color: var(--muted); font-size: 12px; }
-    .meta-line b { color: var(--ink); font-weight: 750; }
-    .rhythm { padding-top: 30px; padding-bottom: 30px; border-bottom: 1px solid var(--rule); }
-    .rhythm-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    .rhythm h2 { margin: 0; font-size: 15px; font-weight: 800; }
-    .rhythm-head p { margin: 0; color: var(--muted); font-size: 11px; }
-    .bars { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 8px; align-items: end; height: 82px; margin-top: 20px; }
-    .bar { position: relative; height: var(--h); min-height: 4px; background: #aeb5aa; }
-    .bar.peak { background: var(--accent); }
-    .bar-labels { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 8px; margin-top: 7px; color: var(--muted); font-size: 10px; text-align: center; }
-    .bar-labels .em { color: var(--accent); font-weight: 800; }
-    .section { padding-top: 59px; padding-bottom: 60px; border-bottom: 1px solid var(--rule); }
-    .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; }
-    .section-num { color: var(--accent); font: 400 23px Georgia, serif; letter-spacing: -.04em; }
-    .section-title { margin: 0; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: clamp(28px, 5vw, 36px); line-height: 1.25; font-weight: 700; letter-spacing: -.035em; }
-    .intro { margin: 0; font-size: 15px; line-height: 1.85; color: #3d443d; }
-    .index { padding-top: 36px; padding-bottom: 35px; border-bottom: 1px solid var(--rule); }
-    .index h2 { margin: 0 0 17px; font-size: 14px; font-weight: 800; }
-    .index-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; }
-    .index-item { display: grid; grid-template-columns: 30px 1fr; gap: 8px; align-items: baseline; padding: 13px 0; border-top: 1px solid var(--rule); }
-    .index-item span { color: var(--accent); font: 400 15px Georgia, serif; }
-    .index-item p { margin: 0; font-size: 14px; line-height: 1.5; font-weight: 650; }
-    .job-pair { display: grid; grid-template-columns: 1.15fr .85fr; gap: 0; margin-top: 28px; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); }
-    .job { padding: 23px 22px 25px 0; }
-    .job + .job { padding-left: 22px; padding-right: 0; border-left: 1px solid var(--rule); }
-    .job-city { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .08em; }
-    .job h3 { margin: 15px 0 8px; font-size: 20px; line-height: 1.35; font-weight: 800; }
-    .job-pay { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
-    .job-pay strong { color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 37px; line-height: 1.2; font-weight: 400; letter-spacing: -.05em; }
-    .job-pay span { color: var(--muted); font-size: 12px; }
-    .job p { margin: 0; font-size: 13px; line-height: 1.8; }
-    .credit { margin: 17px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
-    .takeaway { display: grid; grid-template-columns: 68px 1fr; gap: 12px; margin-top: 23px; align-items: start; }
-    .takeaway-label { color: var(--accent); font-size: 12px; font-weight: 800; }
-    .takeaway p { margin: 0; font-size: 14px; line-height: 1.8; }
-    .pullquote { margin: 28px 0 24px; padding: 19px 0 18px 22px; border-left: 5px solid var(--accent); font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: clamp(24px, 4.4vw, 32px); line-height: 1.5; font-weight: 700; }
-    .pullquote footer { margin-top: 11px; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; color: var(--muted); font-size: 12px; font-weight: 400; }
-    .prose { margin: 0 0 12px; font-size: 14px; line-height: 1.9; color: #333b34; }
-    .fact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 23px; margin: 29px 0; }
-    .fact { border-top: 3px solid var(--accent); padding-top: 14px; }
-    .fact strong { display: block; font-family: Georgia, "Times New Roman", serif; font-size: 43px; line-height: 1.1; font-weight: 400; letter-spacing: -.05em; }
-    .fact p { margin: 7px 0 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
-    .note { margin-top: 23px; padding: 21px 23px; background: #eaece5; }
-    .note p { margin: 0; font-size: 14px; line-height: 1.85; }
-    .note .credit { margin-top: 10px; }
-    .ending { padding-top: 45px; padding-bottom: 47px; }
-    .ending-top { display: flex; align-items: baseline; justify-content: space-between; gap: 15px; border-top: 3px solid var(--ink); padding-top: 20px; }
-    .ending h2 { margin: 0; font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 29px; line-height: 1.35; }
-    .ending-top span { color: var(--accent); font-size: 12px; font-weight: 800; white-space: nowrap; }
-    .footer { padding-top: 22px; padding-bottom: 28px; border-top: 1px solid var(--ink); color: var(--muted); font-size: 11px; line-height: 1.7; }
-    .footer p { margin: 0 0 7px; }
+    .masthead { border-top: 8px solid var(--accent); padding-top: 21px; }
+    .masthead-row { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding-bottom: 15px; border-bottom: 1px solid var(--ink); }
+    .brand { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 800; letter-spacing: -.04em; }
+    .issue { flex: none; margin: 0; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .07em; text-align: right; }
+    .hero { padding-top: 34px; padding-bottom: 28px; border-bottom: 1px solid var(--ink); }
+    .kicker, .eyebrow { margin: 0; color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .09em; }
+    .display { margin: 12px 0 15px; font-size: clamp(36px, 7vw, 53px); line-height: 1.18; font-weight: 760; letter-spacing: -.045em; }
+    .dek { margin: 0; max-width: 610px; color: #3d443d; font-size: 15px; line-height: 1.75; }
+    .meta { display: flex; flex-wrap: wrap; gap: 9px 24px; margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 12px; }
+    .meta b { color: var(--ink); font-weight: 800; }
+    .brief { padding-top: 25px; padding-bottom: 25px; border-bottom: 1px solid var(--ink); }
+    .brief-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 11px; }
+    .brief h2 { margin: 0; font-size: 17px; font-weight: 800; }
+    .brief-head span { color: var(--muted); font-size: 11px; }
+    .brief-item { display: grid; grid-template-columns: 49px 1fr; gap: 13px; padding: 12px 0; border-top: 1px solid var(--rule); }
+    .brief-date { color: var(--accent); font: 400 15px Georgia, serif; white-space: nowrap; }
+    .brief-item p { margin: 0; font-size: 13px; line-height: 1.65; }
+    .brief-item strong { font-weight: 800; }
+    .section { padding-top: 37px; padding-bottom: 39px; border-bottom: 1px solid var(--ink); }
+    .section-head { display: flex; align-items: baseline; gap: 13px; margin-bottom: 17px; }
+    .section-num { color: var(--accent); font: 400 21px Georgia, serif; }
+    .section-title { margin: 0; font-size: clamp(24px, 4.6vw, 31px); line-height: 1.3; font-weight: 760; letter-spacing: -.035em; }
+    .lead { margin: 0 0 21px; color: #3d443d; font-size: 14px; line-height: 1.8; }
+    .job-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .job { border-top: 3px solid var(--ink); padding-top: 15px; }
+    .job-city { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .06em; }
+    .job h3 { margin: 8px 0 11px; font-size: 19px; line-height: 1.42; font-weight: 800; }
+    .job-pay { margin: 0 0 10px; color: var(--accent); font-size: 24px; line-height: 1.3; font-weight: 800; letter-spacing: -.02em; }
+    .job-pay small { color: var(--muted); font-size: 11px; font-weight: 500; letter-spacing: 0; }
+    .job p, .topic p { margin: 0; font-size: 13px; line-height: 1.82; }
+    .job .source { margin-top: 12px; }
+    .source { color: var(--muted); font-size: 11px !important; line-height: 1.6 !important; }
+    .caution { margin: 19px 0 0; padding: 11px 14px; background: var(--soft); color: #394039; font-size: 12px; line-height: 1.75; }
+    .topic { display: grid; grid-template-columns: 112px 1fr; gap: 17px; padding: 18px 0; border-top: 1px solid var(--rule); }
+    .topic:last-child { padding-bottom: 0; }
+    .topic-marker { color: var(--accent); font-size: 11px; font-weight: 800; line-height: 1.6; }
+    .topic h3 { margin: 0 0 7px; font-size: 16px; line-height: 1.5; font-weight: 800; }
+    .topic p + p { margin-top: 7px; }
+    .topic .source { margin-top: 10px; }
+    .pullquote { margin: 20px 0 0; padding: 12px 0 12px 17px; border-left: 4px solid var(--accent); font-size: 21px; line-height: 1.55; font-weight: 760; }
+    .pullquote footer { margin-top: 7px; color: var(--muted); font-size: 11px; font-weight: 500; }
+    .aside { margin-top: 18px; padding: 16px 18px; background: var(--soft); font-size: 12px; line-height: 1.8; }
+    .aside strong { color: var(--accent); }
+    .ending { padding-top: 29px; padding-bottom: 31px; }
+    .ending-top { display: flex; align-items: baseline; justify-content: space-between; gap: 15px; border-top: 3px solid var(--ink); padding-top: 17px; }
+    .ending h2 { margin: 0; font-size: 24px; line-height: 1.35; font-weight: 760; }
+    .ending-top span { color: var(--accent); font-size: 11px; font-weight: 800; white-space: nowrap; }
+    .footer { padding-top: 18px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .footer p { margin: 0 0 6px; }
     @media (max-width: 620px) {
-      .wrap { padding-left: 24px; padding-right: 24px; }
-      .masthead { padding-top: 17px; }
-      .brand { font-size: 20px; }
-      .hero { padding-top: 32px; }
-      .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
-      .hero-figure { display: flex; align-items: end; gap: 18px; border-left: 0; border-top: 1px solid var(--rule); padding: 16px 0 0; }
-      .hero-figure strong { font-size: 79px; }
-      .hero-figure span { margin: 0 0 2px; max-width: 150px; }
-      .index-list { grid-template-columns: minmax(0, 1fr); }
-      .index-item { padding: 10px 0; }
-      .job-pair { grid-template-columns: minmax(0, 1fr); }
-      .job { padding: 20px 0; }
-      .job + .job { padding: 20px 0; border-left: 0; border-top: 1px solid var(--rule); }
-      .section { padding-top: 45px; padding-bottom: 46px; }
-      .bars, .bar-labels { gap: 4px; }
+      .wrap { padding-left: 23px; padding-right: 23px; }
+      .brand { font-size: 18px; }
+      .issue { font-size: 9px; }
+      .hero { padding-top: 27px; padding-bottom: 24px; }
+      .display { margin-top: 10px; }
+      .job-pair { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+      .section { padding-top: 31px; padding-bottom: 33px; }
+      .topic { grid-template-columns: 82px 1fr; gap: 11px; }
     }
     @media (max-width: 390px) {
-      .issue { font-size: 9px; }
-      .brand { font-size: 18px; }
-      .fact-row { gap: 16px; }
-      .fact strong { font-size: 35px; }
-      .takeaway { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+      .brand { font-size: 16px; }
+      .topic { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+      .topic-marker { font-size: 10px; }
+      .ending-top { display: block; }
+      .ending-top span { display: block; margin-top: 8px; }
     }
   </style>
 </head>
@@ -110,98 +89,149 @@
         <p class="issue">社群周报<br>2026.09</p>
       </div>
       <div class="hero">
-        <div class="hero-grid">
-          <div>
-            <p class="kicker">9月18日至29日 · 群聊观察</p>
-            <h1 class="display">找机会，也要过好每一天</h1>
-            <p class="dek">两则招聘消息，一场关于行业和周期的讨论，还有那笔每个打工人都在算的通勤账。</p>
-          </div>
-          <div class="hero-figure" aria-label="覆盖十二天">
-            <strong>12</strong><span>天的聊天，<br>不止工作。</span>
-          </div>
-        </div>
-        <div class="meta-line">
+        <p class="kicker">9月18日至29日 · 群聊观察</p>
+        <h1 class="display">这十二天，大家在聊什么</h1>
+        <p class="dek">两则招聘信息之外，群里还认真聊了企业选择、年假、项目节奏、通勤与租房。这里把有具体信息的讨论捋清楚。</p>
+        <div class="meta">
           <span><b>2,582</b> 条纳入消息</span>
-          <span><b>2</b> 则明确招聘信息</span>
+          <span><b>2</b> 则招聘帖，涉及 <b>4</b> 类岗位</span>
           <span><b>9月20日</b> 最活跃，473 条</span>
         </div>
       </div>
     </header>
 
     <main>
-      <figure class="rhythm wrap" aria-labelledby="rhythm-title">
-        <div class="rhythm-head"><h2 id="rhythm-title">十二天的聊天节奏</h2><p>每日纳入消息数</p></div>
-        <div class="bars" role="img" aria-label="9月18日至29日每日消息数依次为163、122、473、326、353、427、215、51、33、48、192、179">
-          <div class="bar" style="--h:34.5%"></div><div class="bar" style="--h:25.8%"></div><div class="bar peak" style="--h:100%"></div>
-          <div class="bar" style="--h:68.9%"></div><div class="bar" style="--h:74.6%"></div><div class="bar" style="--h:90.3%"></div>
-          <div class="bar" style="--h:45.5%"></div><div class="bar" style="--h:10.8%"></div><div class="bar" style="--h:7%"></div>
-          <div class="bar" style="--h:10.1%"></div><div class="bar" style="--h:40.6%"></div><div class="bar" style="--h:37.8%"></div>
-        </div>
-        <div class="bar-labels" aria-hidden="true"><span>18</span><span>19</span><span class="em">20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span></div>
-      </figure>
-
-      <section class="index wrap" id="highlights">
-        <h2>本期看点</h2>
-        <div class="index-list">
-          <div class="index-item"><span>01</span><p>深圳、长沙出现具体岗位</p></div>
-          <div class="index-item"><span>02</span><p>择业讨论回到行业与周期</p></div>
-          <div class="index-item"><span>03</span><p>通勤成本，有切身体会</p></div>
-          <div class="index-item"><span>04</span><p>十年老群，重申交流边界</p></div>
-        </div>
+      <section class="brief wrap" aria-labelledby="brief-title">
+        <div class="brief-head"><h2 id="brief-title">先看五条</h2><span>可继续往下看细节</span></div>
+        <div class="brief-item"><span class="brief-date">09.18</span><p><strong>深圳招聘：</strong>万科集团总部人力资源中心招薪酬绩效、招聘管理各 1 人，综合年收入 25–35 万元。</p></div>
+        <div class="brief-item"><span class="brief-date">09.21</span><p><strong>休假讨论：</strong>群友对比了不同单位的年假起算和调休做法，关键分歧在制度有没有真正落地。</p></div>
+        <div class="brief-item"><span class="brief-date">09.22</span><p><strong>通勤与工作量：</strong>有人为缩短单程一小时以上的通勤另租住房，也有人说一年项目被压到四个月。</p></div>
+        <div class="brief-item"><span class="brief-date">09.24</span><p><strong>择业讨论：</strong>从国企、民企聊到行业周期；存储行业的增长预期与扩产风险，群友给出了不同看法。</p></div>
+        <div class="brief-item"><span class="brief-date">09.25</span><p><strong>长沙招聘：</strong>市属国企有人力资源、党建岗位，发布者给出的年薪约 12 万元。</p></div>
       </section>
 
       <section class="section wrap" id="jobs">
-        <div class="section-head"><span class="section-num">01</span><h2 class="section-title">岗位信息，讲具体一点</h2></div>
-        <p class="intro">两条招聘消息分别指向深圳和长沙。地点、方向和待遇都写得清楚，是否仍开放需向原发帖人核实。</p>
+        <div class="section-head"><span class="section-num">01</span><h2 class="section-title">这期有哪些岗位</h2></div>
+        <p class="lead">两条帖子都在人力资源相关方向，但城市、平台和任职条件不同。下面只整理发帖时明确写出的信息。</p>
         <div class="job-pair">
           <article class="job">
-            <div class="job-city">深圳 · 9月18日</div>
-            <h3>万科集团总部<br>薪酬绩效 / 招聘管理</h3>
-            <div class="job-pay"><strong>25–35万</strong><span>综合年收入，具体面谈</span></div>
-            <p>各招 1 人，工作地点在福田区万科大厦。发帖人特别说明，这是集团总部人力资源中心岗位，并非地产航道岗位。</p>
-            <p class="credit">发布：佛山 南海 投资 鲁埝坤</p>
+            <div class="job-city">深圳 · 9月18日 07:47</div>
+            <h3>万科集团总部人力资源中心<br>薪酬绩效 / 招聘管理</h3>
+            <p class="job-pay">25–35 万元 <small>综合年收入，具体面谈</small></p>
+            <p>两个方向各招 1 人，地点在深圳福田区万科大厦。发帖人特别说明，岗位属于集团总部人力资源中心，并非地产航道。</p>
+            <p class="source">发布：鲁埝坤</p>
           </article>
           <article class="job">
-            <div class="job-city">长沙 · 9月25日</div>
-            <h3>市属国企<br>人力资源 / 党建</h3>
-            <div class="job-pay"><strong>约12万</strong><span>年薪</span></div>
-            <p>人力资源岗提到人力资源师证书要求，党建岗注明党员优先。有意回湘发展的群友可向原发帖人了解详情。</p>
-            <p class="credit">发布：陈闽沙</p>
+            <div class="job-city">长沙 · 9月25日 16:50</div>
+            <h3>长沙市属国企<br>人力资源 / 党建</h3>
+            <p class="job-pay">约 12 万元 <small>年薪，发帖人所述</small></p>
+            <p>人力资源岗提到二级或三级人力资源师证书；党建岗注明党员优先。有意向的群友可向原发帖人了解岗位详情并投递简历。</p>
+            <p class="source">发布：陈闽沙</p>
           </article>
         </div>
-        <div class="takeaway"><span class="takeaway-label">本期判断</span><p>两个机会都在人力资源方向，但城市、平台与待遇不同。先核实岗位，再按自己的职业阶段判断是否合适。</p></div>
-        <p class="credit">内容贡献：佛山 南海 投资 鲁埝坤、陈闽沙</p>
+        <p class="caution">招聘状态、待遇构成及任职要求可能变化，申请前请向原发帖人或招聘单位核实。</p>
       </section>
 
       <section class="section wrap" id="career">
-        <div class="section-head"><span class="section-num">02</span><h2 class="section-title">选工作，别只看企业标签</h2></div>
-        <div class="takeaway"><span class="takeaway-label">讨论落点</span><p>要一起看行业、业务周期和实际岗位。单位性质能提供线索，却回答不了每天怎么工作。</p></div>
-        <blockquote class="pullquote">“其实跟国企私企没啥关系 主要和行业和周期有关系”<footer>金地设计 魏子悦 广深 · 9月24日</footer></blockquote>
-        <p class="prose">讨论从“私企不如国企”聊开。有人提到地方国企的加班强度，也有人举出进入设计院后又离职的身边案例。黄宝柱提醒，同属大型能源企业，不同业务板块的待遇也可能有差别。</p>
-        <p class="credit">内容贡献：金地设计 魏子悦 广深、薛志业、黄宝柱、佛山 南海 投资 鲁埝坤</p>
+        <div class="section-head"><span class="section-num">02</span><h2 class="section-title">换工作，先看哪一层</h2></div>
+        <p class="lead">9月23日至24日，讨论从“国企还是民企”逐渐转到同一企业内部的业务差异，再延伸到行业周期。</p>
+        <article class="topic">
+          <div class="topic-marker">9月23—24日<br>单位与岗位</div>
+          <div>
+            <h3>企业性质只是第一层信息</h3>
+            <p>薛志业举了地方国企加班和朋友离开设计院的例子。黄宝柱提醒，即使同属大型企业，不同层级、核心业务与配套业务的待遇也可能相差很大。这些都是群友观察，并不代表所有单位。</p>
+            <p class="source">讨论参与：薛志业、黄宝柱等</p>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="topic-marker">9月24日<br>行业周期</div>
+          <div>
+            <h3>魏子悦把问题转向行业和周期</h3>
+            <p>她当时正在关注半导体产业链。群里提到一种乐观看法：AI 相关资本开支可能支撑存储需求；她同时担心中韩企业扩产后出现价格竞争，因此对周期能持续多久持保留态度。这里记录的是讨论，不是行业预测。</p>
+            <p class="source">发言：魏子悦，约 09:18—09:27</p>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="topic-marker">9月24日<br>转向方向</div>
+          <div>
+            <h3>工程背景还能看什么</h3>
+            <p>黄宝柱提到电力行业仍有工程类岗位招聘；魏子悦又提及聚变相关产业链的融资消息。群里没有展开具体岗位条件，这些线索更适合作为后续自行查询的方向。</p>
+            <p class="source">讨论参与：黄宝柱、魏子悦，约 09:35—09:41</p>
+          </div>
+        </article>
+        <blockquote class="pullquote">“其实跟国企私企没啥关系 主要和行业和周期有关系”<footer>魏子悦 · 9月24日 09:18</footer></blockquote>
       </section>
 
-      <section class="section wrap" id="commute">
-        <div class="section-head"><span class="section-num">03</span><h2 class="section-title">通勤账，不能只算距离</h2></div>
-        <p class="intro">9月22日，群友从长距离上班聊到搬家、租房和骑车。租近一点能换回时间，也得接受房租和居住条件的取舍。</p>
-        <div class="fact-row">
-          <div class="fact"><strong>80 km</strong><p>孙泽文回忆过的每日往返通勤距离，一周要用一箱油。</p></div>
-          <div class="fact"><strong>15 min</strong><p>Viy 让住东莞、在前海上班的朋友体验过的短途通勤。</p></div>
-        </div>
-        <p class="prose">詹爱国说，自己曾经单程先开车、再坐地铁、最后步行，后来在工作地点附近租房。已有住房的群友则觉得再租一套会增加开支；有人也在意做饭、设备和住得舒不舒服。</p>
+      <section class="section wrap" id="work">
+        <div class="section-head"><span class="section-num">03</span><h2 class="section-title">制度写着什么，日常又怎样</h2></div>
+        <p class="lead">聊工作体验时，大家说的不是抽象的“忙”，而是休假怎么安排、项目周期怎么变短，以及一天被多少件事切碎。</p>
+        <article class="topic">
+          <div class="topic-marker">9月21日<br>年假与调休</div>
+          <div>
+            <h3>有假可休，和休得到假是两件事</h3>
+            <p>余地认为年假多一些可以错峰出行，前提是制度能够执行。破棉袄大王则对比了前后两家单位：前一家要满足更长的等待期，现单位按入职时间折算。具体规则应以所在单位制度为准。</p>
+            <p class="source">讨论参与：余地、破棉袄大王，约 09:13—09:21</p>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="topic-marker">9月22—23日<br>项目与注意力</div>
+          <div>
+            <h3>计划被压缩，思考时间也被挤走</h3>
+            <p>陈桂欣说，一个原本约一年完成、涉及设计、成本与招标的项目，被上级压到四个月，压力落到执行层。隔天邓帆说忙了一整天没有精力思考；陈桂欣接着提到，多线任务和不断被打断让人很难沉下心处理工作。</p>
+            <p class="source">讨论参与：陈桂欣、邓帆，9月22日约 10:15；9月23日约 19:17—19:21</p>
+          </div>
+        </article>
+        <div class="aside"><strong>连起来看：</strong>求职时除了岗位与薪酬，也值得问清休假执行、项目排期和日常协作方式。群里的两个例子，恰好把这些容易在招聘信息里缺席的细节说了出来。</div>
+      </section>
+
+      <section class="section wrap" id="living">
+        <div class="section-head"><span class="section-num">04</span><h2 class="section-title">住房与通勤，怎么算才合适</h2></div>
+        <p class="lead">9月20日和22日，住房话题从“买还是租”聊到每天怎样上班。答案没有统一版本，大家算的成本也不一样。</p>
+        <article class="topic">
+          <div class="topic-marker">9月22日<br>长通勤</div>
+          <div>
+            <h3>有人多付一份房租，换回每天的时间</h3>
+            <p>詹爱国说，自己曾经单程开车约 15 分钟、坐地铁约 1 小时 10 分钟，再步行约 10 分钟，后来花每月约 3000 元在工作地点附近租房。孙泽文也回忆过每天往返约 80 公里的通勤。Viy 分享的朋友在工作地附近短住时，通勤缩短到约 15 分钟。</p>
+            <p class="source">讨论参与：詹爱国、孙泽文、Viy，9月22日</p>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="topic-marker">9月22日<br>租房取舍</div>
+          <div>
+            <h3>离公司近，也有新的开支</h3>
+            <p>黄宝柱觉得已有住房空着、再付房租不划算。另有群友在意房子的空间、做饭和现有家具设备。讨论里反复出现的不是“必须搬家”，而是把通勤时间、租金和居住舒适度放在同一张账上。</p>
+            <p class="source">讨论参与：黄宝柱、王跃等，9月22日</p>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="topic-marker">9月20日<br>买房与押金</div>
+          <div>
+            <h3>两种住房选择，都牵涉现金安排</h3>
+            <p>买房讨论里，有人担心首付和月供压缩手头资金，也有人觉得如果长期在北京生活，买房自有理由。谈到租房，青苔分享了自己经历的公寓拍卖后退租和押金沟通：她的提醒是提前看清合同主体、押金条款，并留好沟通记录。</p>
+            <p class="source">讨论参与：Viy、孙泽文、Kate昭阳等；租房经历分享：青苔，9月20日</p>
+          </div>
+        </article>
         <blockquote class="pullquote">“通勤真的好影响工作幸福度”<footer>Viy · 9月22日</footer></blockquote>
-        <div class="takeaway"><span class="takeaway-label">讨论落点</span><p>有人愿意多付房租换睡眠，有人更看重现有住房的便利。适合自己的方案，要把钱、时间和每天的状态一起算。</p></div>
-        <p class="credit">内容贡献：Viy、待业 詹爱国 深圳、佛山-营销-孙泽文、中山板芙 王跃、黄宝柱、保利-设计-张丹璐</p>
       </section>
 
       <section class="section wrap" id="community">
-        <div class="section-head"><span class="section-num">04</span><h2 class="section-title">工作之外，还有日落</h2></div>
-        <p class="prose">9月23日，有人说工作忙到没有精力思考，群友接着聊多线任务和频繁被打断。到了周末，也有人分享日落照片和视频，聊起为什么夕阳看着比日出更暖。</p>
-        <div class="note">
-          <p><strong>9月28日群公告</strong>：鲁埝坤重申，群里继续聊打工日常、生活分享和求职就业，也提醒大家不转发未经核实的消息。</p>
-          <p class="credit">分享岗位时核对信息，聊生活时留点空间，这个十年老群才好继续待下去。</p>
-        </div>
-        <p class="credit">内容贡献：邓帆、深圳市第二人民医院-陈桂欣、前招蛇转行人员 刘毅、Atlantide、佛山 南海 投资 鲁埝坤</p>
+        <div class="section-head"><span class="section-num">05</span><h2 class="section-title">群里也有工作之外的事</h2></div>
+        <article class="topic">
+          <div class="topic-marker">9月27日<br>周末片刻</div>
+          <div>
+            <h3>一张日落，让聊天慢下来</h3>
+            <p>陈桂欣分享了傍晚的天空，Atlantide 和 L.Y 接着聊起日落为什么让人愿意停下来看看。这段聊天没有什么“结论”，但让连续几天关于工作和通勤的讨论有了一个轻松的停顿。</p>
+            <p class="source">讨论参与：陈桂欣、Atlantide、L.Y，9月27日</p>
+          </div>
+        </article>
+        <article class="topic">
+          <div class="topic-marker">9月28日<br>群公告</div>
+          <div>
+            <h3>十年老群，重申交流边界</h3>
+            <p>鲁埝坤在公告里说，群里可以继续聊工作生活、求职、育儿和吃喝玩乐，同时提醒大家不要转发未经核实的消息和敏感新闻，维护群内的交流氛围。</p>
+            <p class="source">公告发布：鲁埝坤，9月28日约 10:55</p>
+          </div>
+        </article>
       </section>
     </main>
 
@@ -209,7 +239,7 @@
       <div class="ending-top"><h2>下次见，群里聊。</h2><span>地产#校招生#实名交流群</span></div>
       <div class="footer">
         <p>整理自 2026 年 9 月 18 日至 29 日的群聊记录，纳入 2,582 条消息。</p>
-        <p>招聘信息、行业判断及个人经历均为群内发言摘要，未经独立核实。</p>
+        <p>招聘条件、个人经历和行业看法均为群内发言摘要，未经独立核实；图片和视频内容未纳入解读。</p>
       </div>
     </footer>
   </div>
